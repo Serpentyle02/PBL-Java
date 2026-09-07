@@ -74,7 +74,7 @@ public class PBL {
     // MÉTODO MAIN PARA TESTE RÁPIDO
     // ==========================================
     public static void main(String[] args) {
-        PBL menu = new PBÇ();
+        PBL menu = new PBL();
         menu.iniciar();
     }
 }
