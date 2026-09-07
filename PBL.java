@@ -12,7 +12,7 @@ public class PBL {
     // ==========================================
     public int exibirMenuInicial() {
         System.out.println("=====================================================");
-        System.out.println("            PROJETO OMEGA: MISTÉRIO NO CAMPUS        ");
+        System.out.println("           MISTÉRIO NO CAMPUS        ");
         System.out.println("=====================================================");
         System.out.println("1. Nova Partida");
         System.out.println("2. Instruções");
