@@ -1,0 +1,265 @@
+[
+  {
+    "id": 1,
+    "titulo": "O Caos no Laboratorio",
+    "texto": "Clara: Sumiu! Alguem apagou! Meu projeto de TCC! O diretorio esta vazio!",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "(Acalmar) Fica calma. Nos vamos olhar os logs e achar um rastro.",
+        "idProximaCena": 2,
+        "modLog": 1, "modCar": 0, "modEst": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "(Pressionar) Alguem apagou de proposito? Voce provocou alguem?",
+        "idProximaCena": 2,
+        "modLog": 0, "modCar": 0, "modEst": 1, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "titulo": "A Cena do Crime e o Rival",
+    "texto": "Prof. Silva entra exausto. Atras dele, Beto sorri cinico: 'Incompetencia reprova.'",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "Professor, sugiro congelarmos os terminais para uma pericia interna.",
+        "idProximaCena": 3,
+        "modLog": 0, "modCar": 0, "modEst": -1, "modPis": 0, "modRep": 1,
+        "npc": "Prof. Silva", "modRel": 1, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "Beto, voce foi o ultimo a sair daqui ontem, nao foi?",
+        "idProximaCena": 3,
+        "modLog": 0, "modCar": 0, "modEst": 0, "modPis": 1, "modRep": 0,
+        "npc": "Beto", "modRel": 1, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "titulo": "Buscando Apoio",
+    "texto": "Alice: Rastrear o IP de quem fez isso... talvez. Mas se o Diretor pegar, e justa causa.",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "Eu confio em voce. Vamos descobrir a verdade.",
+        "idProximaCena": 4,
+        "modLog": 0, "modCar": 0, "modEst": 0, "modPis": 1, "modRep": 0,
+        "npc": "Alice", "modRel": 1, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "[REQUER 1 PISTA] Quebre a criptografia do Beto. Ele e o culpado.",
+        "idProximaCena": 4,
+        "modLog": 0, "modCar": 0, "modEst": 0, "modPis": -1, "modRep": 0,
+        "npc": "Beto", "modRel": 1, "reqAttr": "Pistas", "reqVal": 1
+      },
+      {
+        "texto": "Melhor nao arriscarmos. Vou investigar legalmente.",
+        "idProximaCena": 4,
+        "modLog": 1, "modCar": 0, "modEst": 0, "modPis": 0, "modRep": 0,
+        "npc": "Alice", "modRel": -1, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "titulo": "Pistas no Fisico e no Virtual",
+    "texto": "O vigia noturno faz a ronda. 'Opa, aluno. O laboratorio esta interditado.' Sua mente comeca a pesar.",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "(Ignorar o vigia e vasculhar a mesa da Clara)",
+        "idProximaCena": 5,
+        "modLog": 1, "modCar": 0, "modEst": 0, "modPis": 1, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "(Abordar o vigia amigavelmente) Viu algo estranho ontem?",
+        "idProximaCena": 5,
+        "modLog": 0, "modCar": 1, "modEst": 0, "modPis": 1, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "[REQUER ESTRESSE < 3] Tentar manter a calma e argumentar tecnicamente com o vigia.",
+        "idProximaCena": 5,
+        "modLog": 1, "modCar": 0, "modEst": -1, "modPis": 1, "modRep": 1,
+        "npc": "", "modRel": 0, "reqAttr": "EstresseBaixo", "reqVal": 3
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "titulo": "O Encontro no Refeitorio",
+    "texto": "Beto esta digitando furiosamente em uma mesa afastada. 'O que voce quer?'",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "Medo de perder a bolsa de mestrado, Beto?",
+        "idProximaCena": 6,
+        "modLog": 0, "modCar": 0, "modEst": 1, "modPis": 0, "modRep": 0,
+        "npc": "Beto", "modRel": 2, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "(Encarar a tela dele em silencio)",
+        "idProximaCena": 6,
+        "modLog": 1, "modCar": 0, "modEst": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "[REQUER 1 PISTA] O IP mascarado acessou a rede apos voce sair.",
+        "idProximaCena": 6,
+        "modLog": 0, "modCar": 0, "modEst": 0, "modPis": -1, "modRep": 0,
+        "npc": "Beto", "modRel": 1, "reqAttr": "Pistas", "reqVal": 1
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "titulo": "O Beco de Alice",
+    "texto": "Alice: O protocolo de exclusao partiu da Sala de Servidores Central. O firewall e militar.",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "[Confianca Alta] Alice invade as cameras para voce (+2 Pistas)",
+        "idProximaCena": 7,
+        "modLog": 0, "modCar": 0, "modEst": 0, "modPis": 2, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "ConfiancaAlta", "reqVal": 0
+      },
+      {
+        "texto": "[Confianca Baixa] Pagar 500 reais no Pix para Alice (+1 Pista).",
+        "idProximaCena": 7,
+        "modLog": 0, "modCar": 0, "modEst": 1, "modPis": 1, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "ConfiancaBaixa", "reqVal": 0
+      },
+      {
+        "texto": "[Confianca Baixa] Invadir o sistema de seguranca sozinho (+1 Pista).",
+        "idProximaCena": 7,
+        "modLog": 1, "modCar": 0, "modEst": 2, "modPis": 1, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "ConfiancaBaixa", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "titulo": "O Ultimato de Silva",
+    "texto": "Prof. Silva: Faltam 3 horas. Voces descobriram quem fez isso ou encerro como incompetencia?",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "Foi o Beto, professor. Ele tinha o motivo.",
+        "idProximaCena": 8,
+        "modLog": 0, "modCar": 0, "modEst": 0, "modPis": 0, "modRep": -2,
+        "npc": "Beto", "modRel": 10, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "Ainda nao sabemos. Se ela for punida, peco que me punam junto.",
+        "idProximaCena": 8,
+        "modLog": 0, "modCar": 1, "modEst": 2, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "[REQUER E GASTA 2 PISTAS] O ataque usou um cracha master interno.",
+        "idProximaCena": 8,
+        "modLog": 0, "modCar": 0, "modEst": 0, "modPis": -2, "modRep": 2,
+        "npc": "Prof. Silva", "modRel": 2, "reqAttr": "Pistas", "reqVal": 2
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "titulo": "A Sala do Diretor",
+    "texto": "Reuniao de emergencia com o Diretor. Silva tenta abafar o caso. Beto acusa voces de desespero.",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "(Explosivo) Beto estava na sala dos servidores!",
+        "idProximaCena": 9,
+        "modLog": 0, "modCar": 0, "modEst": 2, "modPis": 0, "modRep": 0,
+        "npc": "Beto", "modRel": 1, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "(Calculista) Diretor, o Prof. Silva omite detalhes tecnicos.",
+        "idProximaCena": 9,
+        "modLog": 1, "modCar": 0, "modEst": 0, "modPis": 0, "modRep": -1,
+        "npc": "Prof. Silva", "modRel": -1, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "(Empatico) Pede para Clara mostrar os logs corrompidos.",
+        "idProximaCena": 9,
+        "modLog": 0, "modCar": 1, "modEst": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "titulo": "O Tribunal Academico",
+    "texto": "Diretor: Eu exijo uma resposta definitiva. Quem roubou o algoritmo quantico de Clara?",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "[< 2 Pistas e Alta Rivalidade] Foi o Beto!",
+        "idProximaCena": 11,
+        "modLog": 0, "modCar": 0, "modEst": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "AcusarBeto", "reqVal": 0
+      },
+      {
+        "texto": "[REQUER E GASTA 2 PISTAS] Foi o cracha master do Prof. Silva. Ele roubou o codigo!",
+        "idProximaCena": 10,
+        "modLog": 0, "modCar": 0, "modEst": 0, "modPis": -2, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "Pistas", "reqVal": 2
+      },
+      {
+        "texto": "(Recuar) Eu... eu nao tenho provas suficientes para acusar ninguem.",
+        "idProximaCena": 11,
+        "modLog": 0, "modCar": 0, "modEst": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "titulo": "O Veredito (A Oferta)",
+    "texto": "Encurralado, o Prof. Silva sussurra para voce e oferece bolsas na Europa para voce culpar um bug.",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "Recusar o suborno -> Contar a verdade ao Diretor.",
+        "idProximaCena": 12,
+        "modLog": 0, "modCar": 0, "modEst": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "Aceitar o suborno -> Culpar o sistema.",
+        "idProximaCena": 13,
+        "modLog": 0, "modCar": 0, "modEst": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "titulo": "FINAL 2: O BODE EXPIATORIO",
+    "texto": "Sem provas contra Beto, ele inverte a situacao plantando evidencias no seu IP. O Prof. Silva se safa. Voce e Clara sao expulsos da universidade em desgraca.",
+    "isFinal": true,
+    "opcoes": []
+  },
+  {
+    "id": 12,
+    "titulo": "FINAL 1: O DETETIVE",
+    "texto": "Voce expoe tudo. O Prof. Silva e preso e o algoritmo e recuperado. Clara e aprovada, Beto pede desculpas e o Diretor te oferece um cargo prestigiado. A logica e a etica venceram.",
+    "isFinal": true,
+    "opcoes": []
+  },
+  {
+    "id": 13,
+    "titulo": "FINAL 3: O CUMPLICE",
+    "texto": "Voce mente para o Diretor. Clara e reprovada injustamente. Anos depois, voce esta rico em Paris, trabalhando para Silva. Voce alcancou o sucesso, mas vendeu sua alma.",
+    "isFinal": true,
+    "opcoes": []
+  }
+]
