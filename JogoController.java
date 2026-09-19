@@ -27,22 +27,6 @@ public class JogoController {
         Protagonista p = new Protagonista(nome);
         this.progresso = new ProgressoJogo(p);
         
-        view.exibirMensagem("\n[SISTEMA]: Você possui 5 pontos para distribuir entre Lógica, Carisma e Estresse.");
-        int pontosRestantes = 5;
-        
-        view.exibirMensagem("Pontos em LÓGICA? (Máx " + pontosRestantes + ")");
-        int ptLogica = Integer.parseInt(scanner.nextLine());
-        pontosRestantes -= Math.min(ptLogica, pontosRestantes);
-        
-        view.exibirMensagem("Pontos em CARISMA? (Máx " + pontosRestantes + ")");
-        int ptCarisma = Integer.parseInt(scanner.nextLine());
-        pontosRestantes -= Math.min(ptCarisma, pontosRestantes);
-        
-        int ptEstresse = pontosRestantes; 
-        view.exibirMensagem("O restante (" + ptEstresse + ") foi alocado em ESTRESSE.");
-        
-        p.definirAtributosIniciais(ptLogica, ptCarisma, ptEstresse);
-        
         carregarRoteiroDeArquivo();
         progresso.setCenaAtual(1);
         loopDeJogo();
@@ -58,7 +42,7 @@ public class JogoController {
                 CenaJson cena = new CenaJson(cenaStr);
                 roteiro.put(cena.getId(), cena);
             }
-            view.exibirMensagem("\n[SISTEMA] Arquivo roteiro.json carregado com sucesso!");
+            view.exibirMensagem("\n[SISTEMA] Arquivo roteiro.json carregado!");
         } catch (IOException e) {
             view.exibirMensagem("\n[ERRO CRÍTICO] Arquivo roteiro.json não encontrado na pasta.");
             System.exit(1);
@@ -69,19 +53,25 @@ public class JogoController {
         while (progresso.getCenaAtual() != -1) {
             CenaBase atual = roteiro.get(progresso.getCenaAtual());
             
-            view.exibirMensagem("\n=====================================================");
+            view.limparTela();
+            
+            view.exibirMensagem("========================================================================================");
             view.exibirMensagem("STATUS | Lógica: " + progresso.getJogador().getLogica() + 
                                 " | Carisma: " + progresso.getJogador().getCarisma() + 
                                 " | Estresse: " + progresso.getJogador().getEstresse() + 
+                                " | Coragem: " + progresso.getJogador().getCoragem() + 
                                 " | Pistas: " + progresso.getJogador().getPistas() +
-                                " | Reputação Geral: " + progresso.getJogador().getReputacaoGlobal());
-            view.exibirMensagem("=====================================================");
+                                " | Reputação: " + progresso.getJogador().getReputacaoGlobal());
+            view.exibirMensagem("========================================================================================");
             
             view.exibirTextoCena(atual.getTextoNarrativo());
             
             if (atual.isFinal()) {
+                view.exibirMensagem("\n=== A HISTÓRIA CHEGOU AO FIM ===");
+                view.exibirMensagem("\nPressione [ENTER] para voltar ao Menu Principal...");
+                scanner.nextLine();
                 progresso.setCenaAtual(-1);
-                continue;
+                return;
             }
             
             List<Opcao> validas = atual.getOpcoes(progresso.getJogador());
@@ -99,12 +89,13 @@ public class JogoController {
                 escolhaDigitada = Integer.parseInt(scanner.nextLine());
             } catch (NumberFormatException e) {
                 view.exibirMensagem("Entrada inválida! Por favor, digite um número correspondente a uma opção.");
+                view.exibirMensagem("Pressione [ENTER] para continuar...");
+                scanner.nextLine();
                 continue; 
             }
             
             if (escolhaDigitada == 0) {
                 view.exibirMensagem("\nPartida pausada.");
-                menuCtrl.processarMenu(); 
                 return;
             }
             
@@ -116,8 +107,9 @@ public class JogoController {
                 progresso.setCenaAtual(escolhida.getIdProximaCena());
             } else {
                 view.exibirMensagem("Escolha inválida, tente novamente.");
+                view.exibirMensagem("Pressione [ENTER] para continuar...");
+                scanner.nextLine();
             }
         }
-        view.exibirMensagem("\n=== A HISTÓRIA CHEGOU AO FIM ===");
     }
 }

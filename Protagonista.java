@@ -2,8 +2,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Protagonista extends Personagem {
-    private int logica, carisma, estresse, pistas;
-    private int reputacaoGlobal; // Adição (Relatório 08/09)
+    private int logica, carisma, estresse, coragem, pistas;
+    private int reputacaoGlobal; 
     private Map<String, Integer> rels; 
 
     public Protagonista(String nome) {
@@ -12,23 +12,42 @@ public class Protagonista extends Personagem {
         this.reputacaoGlobal = 0;
     }
 
-    // Método para o novo sistema de pontos (Relatório 18/08)
-    public void definirAtributosIniciais(int logica, int carisma, int estresse) {
-        this.logica = logica;
-        this.carisma = carisma;
-        this.estresse = estresse;
-        this.pistas = 0; // Pistas começam zeradas
+    public void definirAtributosIniciais(int logica, int carisma, int estresse, int coragem) {
+        this.logica = Math.max(0, logica);
+        this.carisma = Math.max(0, carisma);
+        this.estresse = Math.max(0, estresse);
+        this.coragem = Math.max(0, coragem);
+        this.pistas = 0; 
     }
 
-    public void alterarLogica(int valor) { this.logica += valor; }
-    public void alterarCarisma(int valor) { this.carisma += valor; }
-    public void alterarEstresse(int valor) { this.estresse += valor; }
-    public void alterarPistas(int valor) { this.pistas += valor; }
-    public void alterarReputacaoGlobal(int valor) { this.reputacaoGlobal += valor; }
+    // Trava do piso mínimo em 0 para todos os atributos
+    public void alterarLogica(int valor) { 
+        this.logica = Math.max(0, this.logica + valor); 
+    }
+    
+    public void alterarCarisma(int valor) { 
+        this.carisma = Math.max(0, this.carisma + valor); 
+    }
+    
+    public void alterarEstresse(int valor) { 
+        this.estresse = Math.max(0, this.estresse + valor); 
+    }
+    
+    public void alterarCoragem(int valor) { 
+        this.coragem = Math.max(0, this.coragem + valor); 
+    }
+    
+    public void alterarPistas(int valor) { 
+        this.pistas = Math.max(0, this.pistas + valor); 
+    }
+    
+    public void alterarReputacaoGlobal(int valor) { 
+        this.reputacaoGlobal = Math.max(0, this.reputacaoGlobal + valor); 
+    }
 
     public void alterarRelacionamento(NPC n, int v) {
         int atual = getRelacionamento(n);
-        rels.put(n.getNome(), atual + v);
+        rels.put(n.getNome(), Math.max(0, atual + v));
     }
 
     public int getRelacionamento(NPC n) { return rels.getOrDefault(n.getNome(), 0); }
@@ -37,4 +56,5 @@ public class Protagonista extends Personagem {
     public int getLogica() { return logica; }
     public int getCarisma() { return carisma; }
     public int getEstresse() { return estresse; }
+    public int getCoragem() { return coragem; }
 }

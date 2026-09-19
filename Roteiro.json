@@ -1,264 +1,435 @@
 [
   {
     "id": 1,
-    "titulo": "O Caos no Laboratorio",
-    "texto": "Clara: Sumiu! Alguem apagou! Meu projeto de TCC! O diretorio esta vazio!",
+    "titulo": "A Calmaria Antes da Tempestade (Perfil Inicial)",
+    "texto": "[SISTEMA]: O jogo comecou.\nComo voce costuma encarar seus problemas?",
     "isFinal": false,
     "opcoes": [
       {
-        "texto": "(Acalmar) Fica calma. Nos vamos olhar os logs e achar um rastro.",
+        "texto": "Com boa labia e um sorriso.",
         "idProximaCena": 2,
-        "modLog": 1, "modCar": 0, "modEst": 0, "modPis": 0, "modRep": 0,
+        "modLog": 1, "modCar": 3, "modEst": 0, "modCor": 1, "modPis": 0, "modRep": 1,
         "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
       },
       {
-        "texto": "(Pressionar) Alguem apagou de proposito? Voce provocou alguem?",
+        "texto": "Com fatos frios e analise.",
         "idProximaCena": 2,
-        "modLog": 0, "modCar": 0, "modEst": 1, "modPis": 0, "modRep": 0,
+        "modLog": 3, "modCar": 1, "modEst": 0, "modCor": 1, "modPis": 0, "modRep": 1,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "Com a cara e a coragem. Eu nao fujo de conflitos.",
+        "idProximaCena": 2,
+        "modLog": 1, "modCar": 0, "modEst": -1, "modCor": 3, "modPis": 0, "modRep": 0,
         "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
       }
     ]
   },
   {
     "id": 2,
-    "titulo": "A Cena do Crime e o Rival",
-    "texto": "Prof. Silva entra exausto. Atras dele, Beto sorri cinico: 'Incompetencia reprova.'",
+    "titulo": "A Calmaria Antes da Tempestade",
+    "texto": "07h00. O Laboratorio de Inovacao cheira a ozonio e cafe amanhecido.\nA luz fluorescente pisca levemente no fundo da sala. O zumbido hipnotico dos servidores e quebrado quando a porta de vidro se abre.\n\n[ELISA]: Bom dia! Adivinha quem finalmente conseguiu estabilizar a matriz quantica? Eu mesma! Vou compilar a versao final no servidor central agora.",
     "isFinal": false,
     "opcoes": [
       {
-        "texto": "Professor, sugiro congelarmos os terminais para uma pericia interna.",
+        "texto": "Faz logo o backup na nuvem, nao confio nesses servidores velhos.",
         "idProximaCena": 3,
-        "modLog": 0, "modCar": 0, "modEst": -1, "modPis": 0, "modRep": 1,
-        "npc": "Prof. Silva", "modRel": 1, "reqAttr": "", "reqVal": 0
+        "modLog": 1, "modCar": 0, "modEst": 0, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
       },
       {
-        "texto": "Beto, voce foi o ultimo a sair daqui ontem, nao foi?",
+        "texto": "Vamos comemorar no refeitorio depois! Voce merece.",
         "idProximaCena": 3,
-        "modLog": 0, "modCar": 0, "modEst": 0, "modPis": 1, "modRep": 0,
-        "npc": "Beto", "modRel": 1, "reqAttr": "", "reqVal": 0
+        "modLog": 0, "modCar": 1, "modEst": 0, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
       }
     ]
   },
   {
     "id": 3,
-    "titulo": "Buscando Apoio",
-    "texto": "Alice: Rastrear o IP de quem fez isso... talvez. Mas se o Diretor pegar, e justa causa.",
+    "titulo": "O Caos no Laboratorio",
+    "texto": "08h30. Elisa digita suas credenciais com um sorriso, mas logo seus dedos travam.\nA tela do terminal pisca, substituindo o verde amigavel por um vermelho alarmante: 'Diretorio Vazio'.\n\n[ELISA]: Nao, nao, nao! Sumiu! O codigo inteiro sumiu! E o meu backup da nuvem teve a senha alterada! Alguem me hackeou!",
     "isFinal": false,
     "opcoes": [
       {
-        "texto": "Eu confio em voce. Vamos descobrir a verdade.",
+        "texto": "(Acalmar) Fica calma. Ninguem apaga algo tao grande sem deixar rastros.",
         "idProximaCena": 4,
-        "modLog": 0, "modCar": 0, "modEst": 0, "modPis": 1, "modRep": 0,
-        "npc": "Alice", "modRel": 1, "reqAttr": "", "reqVal": 0
+        "modLog": 1, "modCar": 0, "modEst": 0, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
       },
       {
-        "texto": "[REQUER 1 PISTA] Quebre a criptografia do Beto. Ele e o culpado.",
+        "texto": "(Pressionar) Voce andou falando dessa patente pra quem nao devia?",
         "idProximaCena": 4,
-        "modLog": 0, "modCar": 0, "modEst": 0, "modPis": -1, "modRep": 0,
-        "npc": "Beto", "modRel": 1, "reqAttr": "Pistas", "reqVal": 1
-      },
-      {
-        "texto": "Melhor nao arriscarmos. Vou investigar legalmente.",
-        "idProximaCena": 4,
-        "modLog": 1, "modCar": 0, "modEst": 0, "modPis": 0, "modRep": 0,
-        "npc": "Alice", "modRel": -1, "reqAttr": "", "reqVal": 0
+        "modLog": 0, "modCar": 0, "modEst": 1, "modCor": 1, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
       }
     ]
   },
   {
     "id": 4,
-    "titulo": "Pistas no Fisico e no Virtual",
-    "texto": "O vigia noturno faz a ronda. 'Opa, aluno. O laboratorio esta interditado.' Sua mente comeca a pesar.",
+    "titulo": "A Chegada da Autoridade",
+    "texto": "A porta de mogno pesado range. O Professor Silva entra, esfregando as temporas.\nAtras dele, Beto caminha com as maos nos bolsos e um sorriso debochado.\n\n[BETO]: Perder o TCC na vespera, Elisa? Parece que a pressao foi demais. Inventar um hacker fantasma e bem criativo pra quem nao sabe programar.\n[PROF. SILVA]: Sem projeto, e nota zero. A universidade nao cobre desculpas de 'arquivos perdidos', senhorita.",
     "isFinal": false,
     "opcoes": [
       {
-        "texto": "(Ignorar o vigia e vasculhar a mesa da Clara)",
+        "texto": "Professor, congele os terminais. Exijo pericia interna (+1 Reputacao).",
         "idProximaCena": 5,
-        "modLog": 1, "modCar": 0, "modEst": 0, "modPis": 1, "modRep": 0,
-        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+        "modLog": 0, "modCar": 0, "modEst": -1, "modCor": 0, "modPis": 0, "modRep": 1,
+        "npc": "Prof. Silva", "modRel": 1, "reqAttr": "", "reqVal": 0
       },
       {
-        "texto": "(Abordar o vigia amigavelmente) Viu algo estranho ontem?",
+        "texto": "(Encarar de frente) Beto, que horas voce saiu daqui ontem?",
         "idProximaCena": 5,
-        "modLog": 0, "modCar": 1, "modEst": 0, "modPis": 1, "modRep": 0,
-        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
-      },
-      {
-        "texto": "[REQUER ESTRESSE < 3] Tentar manter a calma e argumentar tecnicamente com o vigia.",
-        "idProximaCena": 5,
-        "modLog": 1, "modCar": 0, "modEst": -1, "modPis": 1, "modRep": 1,
-        "npc": "", "modRel": 0, "reqAttr": "EstresseBaixo", "reqVal": 3
+        "modLog": 0, "modCar": 0, "modEst": 0, "modCor": 1, "modPis": 1, "modRep": 0,
+        "npc": "Beto", "modRel": 1, "reqAttr": "", "reqVal": 0
       }
     ]
   },
   {
     "id": 5,
-    "titulo": "O Encontro no Refeitorio",
-    "texto": "Beto esta digitando furiosamente em uma mesa afastada. 'O que voce quer?'",
+    "titulo": "A Grande Bifurcao",
+    "texto": "O Professor Silva bate a porta na cara de voces com violencia. O estrondo ecoa pelo corredor.\nCada segundo perdido e uma chance a menos de salvar a carreira academica de Elisa.\n\n[ELISA]: Onde a gente procura? Na rede, com os rastros digitais, ou no predio, buscando quem passou fisicamente por aqui?",
     "isFinal": false,
     "opcoes": [
       {
-        "texto": "Medo de perder a bolsa de mestrado, Beto?",
+        "texto": "O ataque foi digital. Vou atras da Luiza, a hacker.",
         "idProximaCena": 6,
-        "modLog": 0, "modCar": 0, "modEst": 1, "modPis": 0, "modRep": 0,
-        "npc": "Beto", "modRel": 2, "reqAttr": "", "reqVal": 0
-      },
-      {
-        "texto": "(Encarar a tela dele em silencio)",
-        "idProximaCena": 6,
-        "modLog": 1, "modCar": 0, "modEst": 0, "modPis": 0, "modRep": 0,
+        "modLog": 1, "modCar": 0, "modEst": 0, "modCor": 0, "modPis": 0, "modRep": 0,
         "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
       },
       {
-        "texto": "[REQUER 1 PISTA] O IP mascarado acessou a rede apos voce sair.",
-        "idProximaCena": 6,
-        "modLog": 0, "modCar": 0, "modEst": 0, "modPis": -1, "modRep": 0,
-        "npc": "Beto", "modRel": 1, "reqAttr": "Pistas", "reqVal": 1
+        "texto": "Alguem esteve aqui a noite. Vou botar o vigia contra a parede.",
+        "idProximaCena": 9,
+        "modLog": 0, "modCar": 1, "modEst": 0, "modCor": 1, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
       }
     ]
   },
   {
     "id": 6,
-    "titulo": "O Beco de Alice",
-    "texto": "Alice: O protocolo de exclusao partiu da Sala de Servidores Central. O firewall e militar.",
+    "titulo": "O Beco de Luiza (Rota Digital)",
+    "texto": "O beco atras do predio de Engenharia e umido.\nLuiza esta sentada em um caixote, o brilho do celular refletindo em seus oculos.\n\n[LUIZA]: Rastrear quem apagou os logs dos servidores centrais? Ta pedindo pra eu ser expulsa. Eu so faco isso se formos invadir o roteador secundario do porao agora. Voce topa cobrir minha retaguarda?",
     "isFinal": false,
     "opcoes": [
       {
-        "texto": "[Confianca Alta] Alice invade as cameras para voce (+2 Pistas)",
+        "texto": "To dentro. Vamos correr o risco.",
         "idProximaCena": 7,
-        "modLog": 0, "modCar": 0, "modEst": 0, "modPis": 2, "modRep": 0,
-        "npc": "", "modRel": 0, "reqAttr": "ConfiancaAlta", "reqVal": 0
+        "modLog": 0, "modCar": 0, "modEst": 0, "modCor": 1, "modPis": 0, "modRep": 0,
+        "npc": "Luiza", "modRel": 2, "reqAttr": "", "reqVal": 0
       },
       {
-        "texto": "[Confianca Baixa] Pagar 500 reais no Pix para Alice (+1 Pista).",
-        "idProximaCena": 7,
-        "modLog": 0, "modCar": 0, "modEst": 1, "modPis": 1, "modRep": 0,
-        "npc": "", "modRel": 0, "reqAttr": "ConfiancaBaixa", "reqVal": 0
-      },
-      {
-        "texto": "[Confianca Baixa] Invadir o sistema de seguranca sozinho (+1 Pista).",
-        "idProximaCena": 7,
-        "modLog": 1, "modCar": 0, "modEst": 2, "modPis": 1, "modRep": 0,
-        "npc": "", "modRel": 0, "reqAttr": "ConfiancaBaixa", "reqVal": 0
+        "texto": "Muito arriscado. Esquece, vou por conta propria.",
+        "idProximaCena": 8,
+        "modLog": 0, "modCar": 0, "modEst": 0, "modCor": -1, "modPis": 0, "modRep": 0,
+        "npc": "Luiza", "modRel": -2, "reqAttr": "", "reqVal": 0
       }
     ]
   },
   {
     "id": 7,
-    "titulo": "O Ultimato de Silva",
-    "texto": "Prof. Silva: Faltam 3 horas. Voces descobriram quem fez isso ou encerro como incompetencia?",
+    "titulo": "O Terminal Secundario (Rota Digital)",
+    "texto": "O porao e um labirinto escuro. Luiza conecta o notebook ao roteador.\nDe repente, uma sombra se move na fresta da porta e a macaneta comeca a girar com violencia.\n\n[NARRADOR]: O zelador!",
     "isFinal": false,
     "opcoes": [
       {
-        "texto": "Foi o Beto, professor. Ele tinha o motivo.",
-        "idProximaCena": 8,
-        "modLog": 0, "modCar": 0, "modEst": 0, "modPis": 0, "modRep": -2,
-        "npc": "Beto", "modRel": 10, "reqAttr": "", "reqVal": 0
-      },
-      {
-        "texto": "Ainda nao sabemos. Se ela for punida, peco que me punam junto.",
-        "idProximaCena": 8,
-        "modLog": 0, "modCar": 1, "modEst": 2, "modPis": 0, "modRep": 0,
+        "texto": "Segurar a porta com forca enquanto ela baixa os dados!",
+        "idProximaCena": 12,
+        "modLog": 0, "modCar": 0, "modEst": 2, "modCor": 2, "modPis": 2, "modRep": 0,
         "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
       },
       {
-        "texto": "[REQUER E GASTA 2 PISTAS] O ataque usou um cracha master interno.",
-        "idProximaCena": 8,
-        "modLog": 0, "modCar": 0, "modEst": 0, "modPis": -2, "modRep": 2,
-        "npc": "Prof. Silva", "modRel": 2, "reqAttr": "Pistas", "reqVal": 2
+        "texto": "Desconectar o cabo e fugir apavorado pela janela!",
+        "idProximaCena": 12,
+        "modLog": -1, "modCar": 0, "modEst": 0, "modCor": -1, "modPis": 1, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
       }
     ]
   },
   {
     "id": 8,
-    "titulo": "A Sala do Diretor",
-    "texto": "Reuniao de emergencia com o Diretor. Silva tenta abafar o caso. Beto acusa voces de desespero.",
+    "titulo": "O Firewall do Beto (Rota Digital Alternativa)",
+    "texto": "Sem a ajuda de Luiza, voce se esconde na biblioteca.\nVoce usa um terminal secundario para bisbilhotar o MAC Address do notebook de Beto.",
     "isFinal": false,
     "opcoes": [
       {
-        "texto": "(Explosivo) Beto estava na sala dos servidores!",
-        "idProximaCena": 9,
-        "modLog": 0, "modCar": 0, "modEst": 2, "modPis": 0, "modRep": 0,
-        "npc": "Beto", "modRel": 1, "reqAttr": "", "reqVal": 0
+        "texto": "Tentar combinacoes logicas (datas de aniversario).",
+        "idProximaCena": 12,
+        "modLog": 1, "modCar": 0, "modEst": 0, "modCor": 0, "modPis": 1, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
       },
       {
-        "texto": "(Calculista) Diretor, o Prof. Silva omite detalhes tecnicos.",
-        "idProximaCena": 9,
-        "modLog": 1, "modCar": 0, "modEst": 0, "modPis": 0, "modRep": -1,
-        "npc": "Prof. Silva", "modRel": -1, "reqAttr": "", "reqVal": 0
-      },
-      {
-        "texto": "(Empatico) Pede para Clara mostrar os logs corrompidos.",
-        "idProximaCena": 9,
-        "modLog": 0, "modCar": 1, "modEst": 0, "modPis": 0, "modRep": 0,
+        "texto": "Usar um script de forca bruta (-1 Reputacao).",
+        "idProximaCena": 12,
+        "modLog": 0, "modCar": 0, "modEst": 1, "modCor": 0, "modPis": 1, "modRep": -1,
         "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
       }
     ]
   },
   {
     "id": 9,
-    "titulo": "O Tribunal Academico",
-    "texto": "Diretor: Eu exijo uma resposta definitiva. Quem roubou o algoritmo quantico de Clara?",
+    "titulo": "A Guarita do Sr. Mendes (Rota Fisica)",
+    "texto": "A guarita de seguranca cheira a cigarro.\nO Sr. Mendes pisca os olhos pesados diante dos monitores de seguranca.\n\n[SR. MENDES]: Opa, aluno. O laboratorio esta interditado. Melhor nao ficar por aqui.",
     "isFinal": false,
     "opcoes": [
       {
-        "texto": "[< 2 Pistas e Alta Rivalidade] Foi o Beto!",
-        "idProximaCena": 11,
-        "modLog": 0, "modCar": 0, "modEst": 0, "modPis": 0, "modRep": 0,
-        "npc": "", "modRel": 0, "reqAttr": "AcusarBeto", "reqVal": 0
-      },
-      {
-        "texto": "[REQUER E GASTA 2 PISTAS] Foi o cracha master do Prof. Silva. Ele roubou o codigo!",
+        "texto": "Sr. Mendes, me mostre as filmagens. A bolsa da Elisa depende disso.",
         "idProximaCena": 10,
-        "modLog": 0, "modCar": 0, "modEst": 0, "modPis": -2, "modRep": 0,
-        "npc": "", "modRel": 0, "reqAttr": "Pistas", "reqVal": 2
+        "modLog": 0, "modCar": 1, "modEst": 0, "modCor": 0, "modPis": 1, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
       },
       {
-        "texto": "(Recuar) Eu... eu nao tenho provas suficientes para acusar ninguem.",
-        "idProximaCena": 11,
-        "modLog": 0, "modCar": 0, "modEst": 0, "modPis": 0, "modRep": 0,
-        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+        "texto": "(Ato de ousadia) Derrubar cafe 'acidentalmente' na mesa dele para olhar a tela.",
+        "idProximaCena": 10,
+        "modLog": 0, "modCar": 0, "modEst": 1, "modCor": 1, "modPis": 0, "modRep": 0,
+        "npc": "Beto", "modRel": 1, "reqAttr": "", "reqVal": 0
       }
     ]
   },
   {
     "id": 10,
-    "titulo": "O Veredito (A Oferta)",
-    "texto": "Encurralado, o Prof. Silva sussurra para voce e oferece bolsas na Europa para voce culpar um bug.",
+    "titulo": "O Lixo do Laboratorio (Rota Fisica)",
+    "texto": "O vigia deixou escapar que uma luz no terceiro andar ficou acesa.\nVoce volta ao laboratorio e mergulha a mao na lixeira.\n\n[NARRADOR]: Voce encontra um recibo de cafeteria gourmet emitido as 23h15. O Professor Silva e fascinado por esse cafe... mas Beto tambem.",
     "isFinal": false,
     "opcoes": [
       {
-        "texto": "Recusar o suborno -> Contar a verdade ao Diretor.",
-        "idProximaCena": 12,
-        "modLog": 0, "modCar": 0, "modEst": 0, "modPis": 0, "modRep": 0,
+        "texto": "Guardar o recibo com cuidado.",
+        "idProximaCena": 11,
+        "modLog": 1, "modCar": 0, "modEst": 0, "modCor": 0, "modPis": 1, "modRep": 0,
         "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
       },
       {
-        "texto": "Aceitar o suborno -> Culpar o sistema.",
-        "idProximaCena": 13,
-        "modLog": 0, "modCar": 0, "modEst": 0, "modPis": 0, "modRep": 0,
-        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+        "texto": "Correr ate Beto e jogar o papel na cara dele na frente de todos.",
+        "idProximaCena": 11,
+        "modLog": 0, "modCar": 0, "modEst": 0, "modCor": 1, "modPis": 0, "modRep": 0,
+        "npc": "Beto", "modRel": 2, "reqAttr": "", "reqVal": 0
       }
     ]
   },
   {
     "id": 11,
-    "titulo": "FINAL 2: O BODE EXPIATORIO",
-    "texto": "Sem provas contra Beto, ele inverte a situacao plantando evidencias no seu IP. O Prof. Silva se safa. Voce e Clara sao expulsos da universidade em desgraca.",
-    "isFinal": true,
-    "opcoes": []
+    "titulo": "O Interrogatorio (Rota Fisica)",
+    "texto": "[BETO]: O que voce ta me olhando? Se acha que eu invadi o laboratorio, prove. Meu carro quebrou no estacionamento ontem a noite.",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "[REQUER 1 PISTA] Mentira. O recibo mostra que voce comprou cafe as 23h.",
+        "idProximaCena": 12,
+        "modLog": 0, "modCar": 0, "modEst": 0, "modCor": 0, "modPis": -1, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "Pistas", "reqVal": 1
+      },
+      {
+        "texto": "Vou checar as cameras do estacionamento e descobrir se esta mentindo.",
+        "idProximaCena": 12,
+        "modLog": 0, "modCar": 0, "modEst": 1, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      }
+    ]
   },
   {
     "id": 12,
-    "titulo": "FINAL 1: O DETETIVE",
-    "texto": "Voce expoe tudo. O Prof. Silva e preso e o algoritmo e recuperado. Clara e aprovada, Beto pede desculpas e o Diretor te oferece um cargo prestigiado. A logica e a etica venceram.",
+    "titulo": "A Reuniao de Emergencia",
+    "texto": "16h00. O Professor Silva ordenou uma reuniao imediata. A sala dele parece menor e mais sufocante do que nunca.\n\n[PROF. SILVA]: A direcao esta cobrando. Vou assinar agora um laudo de exclusao acidental por parte da aluna Elisa. O caso esta encerrado.",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "(Enfrentar a autoridade) Isso e um encobrimento covarde! (-2 Reputacao)",
+        "idProximaCena": 13,
+        "modLog": 0, "modCar": 0, "modEst": 1, "modCor": 1, "modPis": 0, "modRep": -2,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "O senhor sabe o que e melhor. (Mente para ganhar tempo).",
+        "idProximaCena": 13,
+        "modLog": 0, "modCar": 1, "modEst": 0, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "titulo": "A Invasao Noturna",
+    "texto": "As sombras se alongam pelos corredores.\nQuando o professor Silva sai para ministrar sua ultima aula noturna, voce nota a chave da sala dele esquecida na mesa dos professores.",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "Pegar a chave e invadir o escritorio do Professor Silva.",
+        "idProximaCena": 14,
+        "modLog": 0, "modCar": 0, "modEst": 1, "modCor": 1, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "Tentar arrombar o armario de metal de Beto com um clipe.",
+        "idProximaCena": 16,
+        "modLog": 0, "modCar": 0, "modEst": 0, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "Beto", "modRel": 2, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "titulo": "O Cofre do Professor",
+    "texto": "Voce abre a gaveta do escritorio escuro. La dentro, uma pasta preta esconde dezenas de contratos.\n\n[NARRADOR]: O algoritmo quantico de Elisa esta impresso pagina por pagina... mas o campo de 'Autor e Proprietario' esta preenchido com o nome do PROFESSOR SILVA!",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "Fotografar tudo silenciosamente.",
+        "idProximaCena": 16,
+        "modLog": 1, "modCar": 0, "modEst": 0, "modCor": 0, "modPis": 2, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "Roubar a pasta fisica inteira sob a jaqueta.",
+        "idProximaCena": 15,
+        "modLog": 0, "modCar": 0, "modEst": 2, "modCor": 2, "modPis": 1, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "titulo": "O Flagrante (Cena de Risco Absoluto)",
+    "texto": "Um calafrio violento sobe pela sua espinha. A macaneta gira e a luz da sala acende.\n\n[NARRADOR]: O Professor Silva esta parado na porta, os olhos arregalados, vendo voce de pe atras da mesa dele! E agora que sua coragem sera testada.",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "[FALHA: Estresse > 6 E Coragem < 2] Congelar de pavor e deixar os papéis cairem (-10 Reputacao).",
+        "idProximaCena": 23,
+        "modLog": 0, "modCar": 0, "modEst": 0, "modCor": 0, "modPis": 0, "modRep": -10,
+        "npc": "", "modRel": 0, "reqAttr": "FlagranteFalha", "reqVal": 0
+      },
+      {
+        "texto": "[Estresse <= 6] Inventar que veio procurar o contato medico da Elisa.",
+        "idProximaCena": 16,
+        "modLog": 0, "modCar": 1, "modEst": 0, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "EstresseBaixo", "reqVal": 6
+      },
+      {
+        "texto": "[REQUER CORAGEM >= 3] Encarar nos olhos: 'Eu sei o que o senhor fez. Saia da frente da porta.'",
+        "idProximaCena": 16,
+        "modLog": 1, "modCar": 0, "modEst": -1, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "CoragemAlta", "reqVal": 3
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "titulo": "O Desabafo de Elisa",
+    "texto": "[ELISA]: O Silva roubou meu projeto para patentear em nome dele?! O maldito me roubou por vinganca porque eu nao quis coloca-lo como coautor!",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "O jogo acabou pra ele. Vamos direto a diretoria.",
+        "idProximaCena": 17,
+        "modLog": 1, "modCar": 0, "modEst": 0, "modCor": 1, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "Eu ainda acho que o Beto ajudou na execucao.",
+        "idProximaCena": 17,
+        "modLog": 0, "modCar": 0, "modEst": 0, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "Beto", "modRel": 1, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "titulo": "A Antessala do Diretor",
+    "texto": "19h00. O ar-condicionado na antessala do Diretor esta no maximo.\nBeto roe as unhas. Silva mantem uma postura ereta. As portas de vidro se abrem.",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "Encarar Beto ameacadoramente.",
+        "idProximaCena": 18,
+        "modLog": 0, "modCar": 0, "modEst": 0, "modCor": 1, "modPis": 0, "modRep": 0,
+        "npc": "Beto", "modRel": 10, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "Ignorar o teatro e focar nas provas.",
+        "idProximaCena": 18,
+        "modLog": 1, "modCar": 0, "modEst": 0, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "titulo": "O Julgamento - Fase 1",
+    "texto": "[DIRETOR]: O prestigio desta instituicao foi violado esta noite. Nao quero contos de fadas. Quero um nome. Agora!",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "[REQUER PISTAS < 2 OU REPUTAÇÃO = 0] Foi o Beto! Olhem pra ele, suando frio!",
+        "idProximaCena": 21,
+        "modLog": 0, "modCar": 0, "modEst": 2, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "ReputacaoBaixa", "reqVal": 1
+      },
+      {
+        "texto": "[REQUER PISTAS >= 2 E REPUTAÇÃO >= 1] Foi um roubo corporativo orquestrado de dentro, senhor.",
+        "idProximaCena": 19,
+        "modLog": 0, "modCar": 1, "modEst": 0, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "ReputacaoAlta", "reqVal": 1
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "titulo": "O Julgamento - Fase 2",
+    "texto": "[PROF. SILVA]: Roubo?! Que ultraje! Voce ousa me acusar com essa audacia?",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "Mostre as patentes na sua maleta, Professor. O cracha master usado as 23h era seu.",
+        "idProximaCena": 20,
+        "modLog": 2, "modCar": 0, "modEst": 0, "modCor": 1, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "titulo": "A Proposta Indecente",
+    "texto": "A mascara do Professor finalmente cai. Ele agarra voce e Elisa pelos bracos e os puxa para um canto.\n\n[PROF. SILVA]: *(Sussurrando)* Digam que foi um engano. Eu garanto doutorado em Paris para voces dois, riqueza e gloria. Neguem isso, e destruirei suas carreiras!",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "Voce tem razao. Temos um trato. Foi um mal entendido, Diretor.",
+        "idProximaCena": 22,
+        "modLog": 0, "modCar": 0, "modEst": 0, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "[REQUER CORAGEM >= 2] A nossa dignidade nao tem etiqueta de preco. Ele acabou de confessar!",
+        "idProximaCena": 201,
+        "modLog": 0, "modCar": 0, "modEst": 0, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "CoragemAlta", "reqVal": 2
+      }
+    ]
+  },
+  {
+    "id": 201,
+    "titulo": "FINAL 1 - O DETETIVE ACADEMICO",
+    "texto": "A sala entra em erupcao. O Diretor aciona a seguranca e o Professor Silva e preso por estelionato intelectual. Beto e jubilado por cumplicidade.\nElisa apresenta o TCC com os arquivos recuperados e garante a assinatura da patente.\nImpressionado com sua coragem e sagacidade, o Diretor lhe oferece a vaga de estagio na agencia nacional de pesquisa.\n\nA logica, a coragem e a etica venceram.",
     "isFinal": true,
     "opcoes": []
   },
   {
-    "id": 13,
-    "titulo": "FINAL 3: O CUMPLICE",
-    "texto": "Voce mente para o Diretor. Clara e reprovada injustamente. Anos depois, voce esta rico em Paris, trabalhando para Silva. Voce alcancou o sucesso, mas vendeu sua alma.",
+    "id": 21,
+    "titulo": "FINAL 2 - O BODE EXPIATORIO",
+    "texto": "Sua acusacao precipitada soa como puro desespero. Beto mostra relatorios forjados apontando que a tentativa de exclusao veio da sua maquina.\nO Professor Silva corrobora a versao de Beto. O Diretor, furioso, expulsa voce e Elisa do campus com escolta policial.\n\nVoces perdem tudo, enquanto os verdadeiros viloes brindam o roubo milionario.",
+    "isFinal": true,
+    "opcoes": []
+  },
+  {
+    "id": 22,
+    "titulo": "FINAL 3 - O CUMPLICE",
+    "texto": "A ganancia ou o medo falam mais alto. O Diretor aceita a desculpa de falha no servidor e encerra o caso.\nAnos depois, voce e Elisa moram em Paris atuando como Pesquisadores Seniores para a corporacao de tecnologia do Professor Silva.\n\nVoces e Elisa andam de carros importados e jantam nos melhores lugares... mas o silencio doloroso sempre os lembra de que venderam a alma por conforto.",
+    "isFinal": true,
+    "opcoes": []
+  },
+  {
+    "id": 23,
+    "titulo": "FINAL 4 - A EXPULSAO PRECOCE (GAME OVER)",
+    "texto": "Seu coracao bate tao forte que a pressao quebra voce. Quando o Professor Silva te flagra no escritorio dele, voce congela. O medo te domina.\nFurioso, Silva chama a seguranca e te acusa de tentativa de invasao e roubo.\n\nVoce e arrastado para fora do predio antes mesmo das 18h. Do patio, voce ve Elisa chorando na janela. Faltou fibra para ir ate o fim.",
     "isFinal": true,
     "opcoes": []
   }
