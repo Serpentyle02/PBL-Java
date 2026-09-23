@@ -84,8 +84,8 @@ O projeto foi construído em **Java puro (sem frameworks ou bibliotecas externas
 
 1. **Clonar o repositório:**
    ```bash
-   git clone [https://github.com/seu-usuario/o-roubo-quantico.git](https://github.com/seu-usuario/o-roubo-quantico.git)
-   cd o-roubo-quantico
+   git clone [https://github.com/Serpentyle02/PBL-Java.git](https://github.com/Serpentyle02/PBL-Java.git)
+   cd PBL-Java
    ```
 
 2. **Compilar todos os pacotes a partir da pasta raiz:**
