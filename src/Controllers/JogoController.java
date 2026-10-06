@@ -1,141 +1,141 @@
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.Scanner;
+package controllers;
+
+import models.Protagonista;
+import models.SalvamentoException;
+import views.ConsoleView;
+
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-/**
- * Controller responsável pelo loop de jogabilidade.
- * Conecta a leitura do JSON, as atualizações do Protagonista e a exibição na View.
- *
- * @author Renan Queiroz & Felipe Pereira
- */
 public class JogoController {
-    private ProgressoJogo progresso; // Estado atual do jogo
-    private Map<Integer, CenaBase> roteiro; // Repositório de cenas mapeadas por ID
-    private ConsoleView view; // Referência da camada View
-    private MenuController menuCtrl; // Referência do Controller de Menus
-    private Scanner scanner; // Leitor para pausas
-
-    /**
-     * Construtor do Controller de Jogo.
-     */
+    
+    private Protagonista protagonista;
+    private int idCenaAtual;
+    private ConsoleView view;
+    
+    // Construtor recebendo a View (Injeção de Dependência)
     public JogoController(ConsoleView view) {
         this.view = view;
-        this.roteiro = new HashMap<>(); // Inicializa o Mapa de roteiro
-        this.scanner = new Scanner(System.in); // Leitor auxiliar
     }
 
     /**
-     * Injeta a referência do MenuController para possibilitar retornos.
+     * Inicia a partida.
+     * @param carregarSave Se true, tenta ler o arquivo; se false, cria jogo novo.
      */
-    public void setMenuController(MenuController mc) {
-        this.menuCtrl = mc; // Salva o menu controller
-    }
-
-    /**
-     * Inicializa os dados da partida e dispara o loop principal.
-     */
-    public void iniciarNovoJogo(String nome) {
-        Protagonista p = new Protagonista(nome); // Instancia o jogador
-        this.progresso = new ProgressoJogo(p); // Cria o container de progresso
+    public void iniciarPartida(boolean carregarSave) {
+        if (carregarSave) {
+            carregarProgresso();
+        } else {
+            iniciarNovoJogo();
+        }
         
-        carregarRoteiroDeArquivo(); // Carrega e decodifica o arquivo roteiro.json
-        progresso.setCenaAtual(1); // Posiciona o jogador na Cena 1
-        loopDeJogo(); // Inicia a execução do loop narrativo
+        loopPrincipal();
     }
 
     /**
-     * Lê o arquivo roteiro.json e instancia os objetos CenaJson no repositório.
+     * Inicializa os dados para um jogo novo do zero.
      */
-    public void carregarRoteiroDeArquivo() {
+    private void iniciarNovoJogo() {
+        this.protagonista = new Protagonista();
+        this.idCenaAtual = 1; // ID da primeira cena do roteiro
+    }
+
+    /**
+     * Tenta ler o savegame.json na pasta src/JsonFiles. 
+     * TRATAMENTO DE ERRO: Se não encontrar o arquivo, gera um novo automaticamente.
+     */
+    private void carregarProgresso() {
+        view.exibirMensagem("Procurando arquivo de salvamento em src/JsonFiles...");
+
         try {
-            // Lê todo o conteúdo textual do arquivo roteiro.json
-            String jsonCompleto = new String(Files.readAllBytes(Paths.get("roteiro.json")));
-            // Separa os objetos individuais através do divisor de ID
-            String[] blocos = jsonCompleto.split("\\{\\s*\"id\"");
+            // Tenta ler o arquivo do disco na pasta correta
+            String json = new String(Files.readAllBytes(Paths.get("src/JsonFiles/savegame.json")));
             
-            for (int i = 1; i < blocos.length; i++) {
-                String cenaStr = "{\"id\"" + blocos[i]; // Recompõe a estrutura válida do objeto
-                CenaJson cena = new CenaJson(cenaStr); // Instancia a cena executando o parse
-                roteiro.put(cena.getId(), cena); // Armazena no mapa de roteiro
+            this.protagonista = new Protagonista();
+            
+            // Leitura nativa rápida usando Regex para extrair a cena salva
+            Matcher mCena = Pattern.compile("\"idCenaAtual\"\\s*:\\s*(\\d+)").matcher(json);
+            if (mCena.find()) {
+                this.idCenaAtual = Integer.parseInt(mCena.group(1));
             }
-            view.exibirMensagem("\n[SISTEMA] Arquivo roteiro.json carregado!");
+            
+            view.exibirMensagem("Progresso carregado com sucesso! Retornando à Cena " + this.idCenaAtual);
+
         } catch (IOException e) {
-            view.exibirMensagem("\n[ERRO CRÍTICO] Arquivo roteiro.json não encontrado na pasta.");
-            System.exit(1); // Aborta a execução caso o roteiro esteja ausente
+            // EXCEÇÃO CAPTURADA: Arquivo não existe na pasta
+            view.exibirMensagem("AVISO: Arquivo 'savegame.json' não encontrado em src/JsonFiles.");
+            view.exibirMensagem("Gerando um novo arquivo de salvamento limpo...");
+            
+            iniciarNovoJogo(); // Cria um protagonista zerado
+            executarSalvamento(); // Força a geração do arquivo novo na pasta correta
         }
     }
 
     /**
-     * Loop principal que gerencia a exibição da cena, captura da escolha e verificação de fim de jogo.
+     * Instancia o SalvamentoController e salva o estado atual do jogo.
      */
-    public void loopDeJogo() {
-        while (progresso.getCenaAtual() != -1) {
-            CenaBase atual = roteiro.get(progresso.getCenaAtual()); // Resgata a cena do mapa
+    public void executarSalvamento() {
+        SalvamentoController salvamentoController = new SalvamentoController();
+        
+        try {
+            salvamentoController.salvarProgresso(this.protagonista, this.idCenaAtual);
+            view.exibirMensagem(">> Jogo salvo com sucesso em src/JsonFiles/savegame.json! <<");
+        } catch (SalvamentoException e) {
+            view.exibirMensagem("ERRO CRÍTICO AO SALVAR: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Loop principal de execução do jogo.
+     */
+    private void loopPrincipal() {
+        boolean jogoRodando = true;
+
+        while (jogoRodando) {
+            // 1. Limpa a tela antes de desenhar a nova cena
+            view.limparTela();
             
-            view.limparTela(); // Limpa o terminal
+            // 2. Exibe o status do jogador (Vida, Estresse, Pistas, etc)
+            view.exibirStatusProtagonista(this.protagonista);
             
-            // Exibe o painel de status atualizado do protagonista
-            view.exibirMensagem("========================================================================================");
-            view.exibirMensagem("STATUS | Lógica: " + progresso.getJogador().getLogica() + 
-                                " | Carisma: " + progresso.getJogador().getCarisma() + 
-                                " | Estresse: " + progresso.getJogador().getEstresse() + 
-                                " | Coragem: " + progresso.getJogador().getCoragem() + 
-                                " | Pistas: " + progresso.getJogador().getPistas() +
-                                " | Reputação: " + progresso.getJogador().getReputacaoGlobal());
-            view.exibirMensagem("========================================================================================");
+            // Simulação de menu de opções do turno
+            view.exibirMensagem("\nO que você deseja fazer?");
+            view.exibirMensagem("[1] Avançar na história");
+            view.exibirMensagem("[8] Salvar Jogo");
+            view.exibirMensagem("[9] Sair para o Menu Principal");
             
-            view.exibirTextoCena(atual.getTextoNarrativo()); // Exibe o texto da cena
+            String entrada = view.lerEntrada();
+            int escolha = -1;
             
-            // Tratamento de cena final
-            if (atual.isFinal()) {
-                view.exibirMensagem("\n=== A HISTÓRIA CHEGOU AO FIM ===");
-                view.exibirMensagem("\nPressione [ENTER] para voltar ao Menu Principal...");
-                scanner.nextLine(); // Aguarda leitura do usuário
-                progresso.setCenaAtual(-1); // Sinaliza encerramento do jogo
-                return; // Sai do loop para retornar ao MenuController
-            }
-            
-            // Obtém apenas as opções liberadas pelas condições
-            List<Opcao> validas = atual.getOpcoes(progresso.getJogador());
-            
-            view.exibirMensagem("\nOPÇÕES:");
-            for (int i = 0; i < validas.size(); i++) {
-                view.exibirMensagem((i + 1) + ". " + validas.get(i).getTexto()); // Lista opções válidas
-            }
-            view.exibirMensagem("0. [SISTEMA] Pausar e voltar ao Menu Principal");
-            
-            view.exibirMensagem("\nSua escolha: ");
-            
-            int escolhaDigitada = -1;
+            // TRATAMENTO DE ERRO: Evita InputMismatchException se o usuário digitar letras
             try {
-                // Tenta converter a linha digitada em número inteiro
-                escolhaDigitada = Integer.parseInt(scanner.nextLine());
+                escolha = Integer.parseInt(entrada);
             } catch (NumberFormatException e) {
-                view.exibirMensagem("Entrada inválida! Por favor, digite um número correspondente a uma opção.");
-                view.exibirMensagem("Pressione [ENTER] para continuar...");
-                scanner.nextLine();
-                continue; // Repete o loop sem travar a execução
+                view.exibirMensagem("ERRO: Entrada inválida. Por favor, digite apenas números.");
+                view.pausarParaLeitura();
+                continue; // Reinicia o loop, impedindo o crash
             }
             
-            if (escolhaDigitada == 0) {
-                view.exibirMensagem("\nPartida pausada.");
-                return; // Aborta o loop e retorna ao MenuController
-            }
-            
-            int escolhaIdx = escolhaDigitada - 1; // Ajusta índice base 0
-            
-            if(escolhaIdx >= 0 && escolhaIdx < validas.size()) {
-                Opcao escolhida = validas.get(escolhaIdx); // Obtém a opção escolhida
-                escolhida.aplicarConsequencias(progresso.getJogador()); // Aplica os impactos nos atributos
-                progresso.setCenaAtual(escolhida.getIdProximaCena()); // Atualiza para a nova cena
-            } else {
-                view.exibirMensagem("Escolha inválida, tente novamente.");
-                view.exibirMensagem("Pressione [ENTER] para continuar...");
-                scanner.nextLine();
+            // 3. Processamento da escolha
+            switch (escolha) {
+                case 1:
+                    this.idCenaAtual++; 
+                    break;
+                case 8:
+                    executarSalvamento();
+                    view.pausarParaLeitura();
+                    break;
+                case 9:
+                    jogoRodando = false;
+                    view.exibirMensagem("Voltando ao menu principal...");
+                    break;
+                default:
+                    view.exibirMensagem("Opção inválida! Tente novamente.");
+                    view.pausarParaLeitura();
+                    break;
             }
         }
     }
