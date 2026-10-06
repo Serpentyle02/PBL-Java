@@ -4,6 +4,7 @@
  *
  * @author Renan Queiroz & Felipe Pereira
  */
+package models;
 public class Opcao {
     private String texto; // Descrição textual apresentada ao jogador
     private int idProximaCena; // ID da cena destino

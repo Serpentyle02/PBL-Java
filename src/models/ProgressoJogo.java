@@ -4,6 +4,7 @@
  *
  * @author Renan Queiroz & Felipe Pereira
  */
+package models;
 public class ProgressoJogo {
     private int idCenaAtual; // ID numérico da cena em execução
     private Protagonista jogador; // Referência do jogador

@@ -1,3 +1,4 @@
+package models;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,6 +8,7 @@ import java.util.Map;
  *
  * @author Renan Queiroz & Felipe Pereira
  */
+
 public class Protagonista extends Personagem {
     // Atributos numéricos de capacidade do jogador
     private int logica, carisma, estresse, coragem, pistas;
@@ -78,4 +80,11 @@ public class Protagonista extends Personagem {
     public int getCarisma() { return carisma; }
     public int getEstresse() { return estresse; }
     public int getCoragem() { return coragem; }
+
+    /**
+     * Cópia do mapa de relacionamentos (nome do NPC -> afinidade), usada para salvar.
+     */
+    public Map<String, Integer> getRelacionamentos() {
+        return new HashMap<>(rels);
+    }
 }

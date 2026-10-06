@@ -15,6 +15,9 @@ do código, e estou ciente que estes trechos não serão considerados para fins 
  *
  * @author Renan Queiroz & Felipe Pereira
  */
+
+package controllers;
+import views.ConsoleView;
 public class MainController {
     
     /**

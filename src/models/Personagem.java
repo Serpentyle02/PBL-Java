@@ -4,6 +4,7 @@
  *
  * @author Renan Queiroz & Felipe Pereira
  */
+package models;
 public abstract class Personagem {
     // Nome do personagem (acessível por subclasses através do modificador protected)
     protected String nome;

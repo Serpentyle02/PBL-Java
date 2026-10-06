@@ -3,6 +3,7 @@
  *
  * @author Renan Queiroz & Felipe Pereira
  */
+package models;
 public class NPC extends Personagem {
     // Papel ou função do NPC na narrativa (ex: "Aliada", "Rival", "Orientador")
     private String papelNaHistoria;

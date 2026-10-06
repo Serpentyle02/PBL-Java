@@ -1,3 +1,6 @@
+package views;
+import models.Opcao;
+import models.Protagonista;
 import java.util.Scanner;
 import java.util.List;
 
@@ -80,7 +83,26 @@ public class ConsoleView {
         System.out.print("Sua escolha: ");
         return Integer.parseInt(scanner.nextLine()) - 1; // Retorna o índice correspondente
     }
+    public void exibirStatusProtagonista(Protagonista p) {
+        System.out.println("=== STATUS DE " + p.getNome().toUpperCase() + " ===");
+        System.out.println("Lógica: " + p.getLogica()
+                + " | Carisma: " + p.getCarisma()
+                + " | Estresse: " + p.getEstresse()
+                + " | Coragem: " + p.getCoragem());
+        System.out.println("Pistas: " + p.getPistas()
+                + " | Reputação: " + p.getReputacaoGlobal());
+        System.out.println("---------------------------------");
+    }
 
+    public String lerEntrada() {
+        System.out.print("> ");
+        return scanner.nextLine();
+    }
+
+    public void pausarParaLeitura() {
+        System.out.print("\nPressione ENTER para continuar...");
+        scanner.nextLine();
+    }
     /**
      * Exibe mensagens gerais de sistema.
      */

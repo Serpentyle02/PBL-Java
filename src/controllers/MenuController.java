@@ -4,6 +4,8 @@
  *
  * @author Renan Queiroz & Felipe Pereira
  */
+package controllers;
+import views.ConsoleView;
 public class MenuController {
     private ConsoleView view; // Referência da View
     private JogoController jogoCtrl; // Referência do Controller de jogo
