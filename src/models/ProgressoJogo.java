@@ -1,31 +1,55 @@
-/**
- * Guarda o estado corrente da execução do jogo no modelo.
- * Mantém a referência do Protagonista e o cursor da cena atual.
- *
- * @author Renan Queiroz & Felipe Pereira
- */
 package models;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class ProgressoJogo {
-    private int idCenaAtual; // ID numérico da cena em execução
-    private Protagonista jogador; // Referência do jogador
 
-    /**
-     * Instancia o progresso associando o Protagonista na cena inicial (1).
-     */
-    public ProgressoJogo(Protagonista p) {
-        this.jogador = p;
-        this.idCenaAtual = 1; // Inicia a história pela primeira cena
+    private int slotId;
+    private int idCenaAtual;
+    private String dataHora;
+    private String resumoProgressao;
+    private Protagonista protagonista;
+
+    private int velocidadeTextoMs = 20;
+    private boolean autoSaveAtivo = true;
+    private boolean exibirDicas = true;
+    private final List<String> desbloqueaveis = new ArrayList<>();
+    private final List<String> finais = new ArrayList<>();
+
+    public ProgressoJogo(int slotId, Protagonista protagonista, int idCenaAtual, String dataHora, String resumo) {
+        this.slotId = slotId;
+        this.protagonista = protagonista;
+        this.idCenaAtual = idCenaAtual;
+        this.dataHora = dataHora;
+        this.resumoProgressao = resumo;
     }
 
-    public int getCenaAtual() { 
-        return idCenaAtual; // Retorna o ID da cena corrente
+    public ProgressoJogo() {}
+
+    public boolean adicionarDesbloqueavel(String item) {
+        return !desbloqueaveis.contains(item) && desbloqueaveis.add(item);
     }
 
-    public void setCenaAtual(int id) { 
-        this.idCenaAtual = id; // Atualiza o cursor da cena corrente
+    public boolean adicionarFinal(String tituloFinal) {
+        return !finais.contains(tituloFinal) && finais.add(tituloFinal);
     }
 
-    public Protagonista getJogador() { 
-        return jogador; // Retorna o objeto do protagonista
-    }
+    public int getSlotId() { return slotId; }
+    public int getIdCenaAtual() { return idCenaAtual; }
+    public String getDataHora() { return dataHora; }
+    public String getResumoProgressao() { return resumoProgressao; }
+    public Protagonista getProtagonista() { return protagonista; }
+
+    public int getVelocidadeTextoMs() { return velocidadeTextoMs; }
+    public void setVelocidadeTextoMs(int v) { this.velocidadeTextoMs = v; }
+
+    public boolean isAutoSaveAtivo() { return autoSaveAtivo; }
+    public void setAutoSaveAtivo(boolean v) { this.autoSaveAtivo = v; }
+
+    public boolean isExibirDicas() { return exibirDicas; }
+    public void setExibirDicas(boolean v) { this.exibirDicas = v; }
+
+    public List<String> getDesbloqueaveis() { return desbloqueaveis; }
+    public List<String> getFinais() { return finais; }
 }

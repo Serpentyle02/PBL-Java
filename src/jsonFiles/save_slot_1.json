@@ -1,0 +1,13 @@
+{
+  "nome": "Investigador",
+  "dataHora": "15/10/2026 23:22",
+  "resumo": "Auto-Save",
+  "idCenaAtual": 5,
+  "logica": 2,
+  "carisma": 4,
+  "estresse": 0,
+  "coragem": 2,
+  "pistas": 1,
+  "reputacao": 1,
+  "relacionamentos": {"Beto": 1}
+}

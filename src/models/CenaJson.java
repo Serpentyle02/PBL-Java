@@ -1,87 +1,168 @@
 package models;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * Implementação concreta de CenaBase responsável pelo parser nativo de JSON.
- * Isola dependências externas extraindo dados via expressões regulares.
- *
- * @author Renan Queiroz & Felipe Pereira
- */
 public class CenaJson extends CenaBase {
-    
-    /**
-     * Construtor que recebe a String JSON do bloco e executa o carregamento.
-     */
-    public CenaJson(String jsonString) {
-        carregarDados(jsonString); // Invoca a extração de dados
+
+    private List<Opcao> opcoes = new ArrayList<>();
+
+    public CenaJson() {
+        super();
     }
 
     @Override
-    public void carregarDados(String json) {
-        // Extrai dados primários da cena utilizando expressões regulares
-        this.id = Integer.parseInt(extrairValor(json, "\"id\"\\s*:\\s*(\\d+)"));
-        this.titulo = sanitizarTexto(extrairValor(json, "\"titulo\"\\s*:\\s*\"([^\"]+)\""));
-        this.textoNarrativo = sanitizarTexto(extrairValor(json, "\"texto\"\\s*:\\s*\"([^\"]+)\""));
-        this.isFinal = Boolean.parseBoolean(extrairValor(json, "\"isFinal\"\\s*:\\s*(true|false)"));
-
-        // Localiza e varre os sub-blocos de opções contidos no JSON da cena
-        Matcher m = Pattern.compile("\\{\\s*\"texto\"\\s*:\\s*\"([^\"]+)\"(.*?)\\}", Pattern.DOTALL).matcher(json);
-        
-        while (m.find()) {
-            String texto = sanitizarTexto(m.group(1)); // Extrai o texto visível da opção
-            String opJson = m.group(2); // Extrai os modificadores e requisitos numéricos
-            
-            int idProx = Integer.parseInt(extrairValor(opJson, "\"idProximaCena\"\\s*:\\s*(\\d+)"));
-            Opcao op = new Opcao(texto, idProx); // Instancia a opção
-            
-            // Lê modificadores de atributos com fallback seguro para zero
-            int mLog = parseIntSeguro(extrairValor(opJson, "\"modLog\"\\s*:\\s*(-?\\d+)"));
-            int mCar = parseIntSeguro(extrairValor(opJson, "\"modCar\"\\s*:\\s*(-?\\d+)"));
-            int mEst = parseIntSeguro(extrairValor(opJson, "\"modEst\"\\s*:\\s*(-?\\d+)"));
-            int mCor = parseIntSeguro(extrairValor(opJson, "\"modCor\"\\s*:\\s*(-?\\d+)"));
-            int mPis = parseIntSeguro(extrairValor(opJson, "\"modPis\"\\s*:\\s*(-?\\d+)"));
-            int mRep = parseIntSeguro(extrairValor(opJson, "\"modRep\"\\s*:\\s*(-?\\d+)"));
-            
-            // Processa alvos de relacionamento (NPCs)
-            String npcNome = extrairValor(opJson, "\"npc\"\\s*:\\s*\"([^\"]*)\"");
-            int mRel = parseIntSeguro(extrairValor(opJson, "\"modRel\"\\s*:\\s*(-?\\d+)"));
-            NPC npc = npcNome.isEmpty() ? null : new NPC(npcNome, "");
-            
-            // Associa os modificadores à opção
-            op.setConsequencias(mLog, mCar, mEst, mCor, mPis, mRep, npc, mRel);
-
-            // Lê requisitos condicionais de acesso, caso existam
-            String reqAttr = extrairValor(opJson, "\"reqAttr\"\\s*:\\s*\"([^\"]*)\"");
-            int reqVal = parseIntSeguro(extrairValor(opJson, "\"reqVal\"\\s*:\\s*(\\d+)"));
-            if (!reqAttr.isEmpty()) {
-                op.setRequisito(reqAttr, reqVal); // Configura exigência para exibição
-            }
-            
-            this.adicionarOpcao(op); // Adiciona a opção à lista da cena
+    public void carregarDados(String bloco) {
+        String cabecalho = bloco;
+        Matcher m = Pattern.compile("\"opcoes\"\\s*:\\s*\\[").matcher(bloco);
+        String trechoOpcoes = "";
+        if (m.find()) {
+            cabecalho = bloco.substring(0, m.start());
+            trechoOpcoes = bloco.substring(m.end());
         }
+
+        this.id = extrairInt(cabecalho, "id", -1);
+        this.titulo = extrairString(cabecalho, "titulo");
+        this.texto = extrairString(cabecalho, "texto");
+        this.isFinal = cabecalho.matches("(?s).*\"isFinal\"\\s*:\\s*true.*");
+        this.opcoes = extrairOpcoes(trechoOpcoes);
     }
 
-    /**
-     * Sanitiza a String substituindo escapes literais de quebra de linha por caracteres reais.
-     */
-    private String sanitizarTexto(String texto) {
-        if (texto == null) return ""; // Previne NullPointerException
-        return texto.replace("\\\\n", "\n").replace("\\n", "\n"); // Converte \n e \\n
+    public static List<CenaJson> carregarCenasDoArquivo() {
+        List<CenaJson> cenas = new ArrayList<>();
+        Path caminho = localizarArquivoRoteiro();
+        if (caminho == null) {
+            System.err.println("\n[ERRO] Arquivo Roteiro.json nao encontrado!");
+            return cenas;
+        }
+        try {
+            String json = new String(Files.readAllBytes(caminho), StandardCharsets.UTF_8);
+            for (String bloco : extrairObjetos(json)) {
+                CenaJson cena = new CenaJson();
+                cena.carregarDados(bloco);
+                if (cena.getId() != -1) cenas.add(cena);
+            }
+            cenas.sort(Comparator.comparingInt(CenaBase::getId));
+        } catch (IOException e) {
+            System.err.println("[ERRO] Falha ao ler Roteiro.json: " + e.getMessage());
+        }
+        return cenas;
     }
 
-    /**
-     * Executa a busca de padrões regex retornando o grupo capturado.
-     */
-    private String extrairValor(String texto, String regex) {
-        Matcher matcher = Pattern.compile(regex).matcher(texto);
-        return matcher.find() ? matcher.group(1) : ""; // Retorna valor encontrado ou String vazia
+    /** Extrai os objetos {...} de nível 0, respeitando strings e escapes. */
+    private static List<String> extrairObjetos(String conteudo) {
+        List<String> objetos = new ArrayList<>();
+        int nivel = 0, inicio = -1;
+        boolean aspas = false, escape = false;
+
+        for (int i = 0; i < conteudo.length(); i++) {
+            char c = conteudo.charAt(i);
+            if (escape) { escape = false; continue; }
+            if (c == '\\') { escape = true; continue; }
+            if (c == '"') { aspas = !aspas; continue; }
+            if (aspas) continue;
+
+            if (c == '{') {
+                if (nivel == 0) inicio = i;
+                nivel++;
+            } else if (c == '}') {
+                nivel--;
+                if (nivel < 0) break; // fechamento do objeto pai
+                if (nivel == 0 && inicio != -1) {
+                    objetos.add(conteudo.substring(inicio, i + 1));
+                    inicio = -1;
+                }
+            }
+        }
+        return objetos;
     }
 
-    /**
-     * Converte Strings numéricas com segurança contra valores nulos ou vazios.
-     */
-    private int parseIntSeguro(String val) {
-        return (val == null || val.isEmpty()) ? 0 : Integer.parseInt(val); // Garante retorno numérico
+    private static List<Opcao> extrairOpcoes(String trecho) {
+        List<Opcao> lista = new ArrayList<>();
+        for (String item : extrairObjetos(trecho)) {
+            String txt = extrairString(item, "texto");
+            if (txt.isEmpty()) continue;
+
+            Opcao op = new Opcao(txt, extrairInt(item, "idProximaCena", -1));
+            op.setConsequencias(
+                    extrairInt(item, "modLog", 0), extrairInt(item, "modCar", 0),
+                    extrairInt(item, "modEst", 0), extrairInt(item, "modCor", 0),
+                    extrairInt(item, "modPis", 0), extrairInt(item, "modRep", 0),
+                    extrairString(item, "npc"), extrairInt(item, "modRel", 0));
+            op.setRequisito(extrairString(item, "reqAttr"), extrairInt(item, "reqVal", 0));
+            lista.add(op);
+        }
+        return lista;
     }
+
+    private static String extrairString(String json, String chave) {
+        Matcher m = Pattern.compile("\"" + chave + "\"\\s*:\\s*\"((?:\\\\.|[^\"\\\\])*)\"").matcher(json);
+        return m.find() ? desescapar(m.group(1)) : "";
+    }
+
+    private static int extrairInt(String json, String chave, int padrao) {
+        Matcher m = Pattern.compile("\"" + chave + "\"\\s*:\\s*([+-]?\\d+)").matcher(json);
+        return m.find() ? Integer.parseInt(m.group(1)) : padrao;
+    }
+
+    private static String desescapar(String s) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (c == '\\' && i + 1 < s.length()) {
+                char n = s.charAt(++i);
+                switch (n) {
+                    case 'n': sb.append('\n'); break;
+                    case 't': sb.append('\t'); break;
+                    case 'r': break;
+                    case 'u':
+                        if (i + 4 < s.length()) {
+                            sb.append((char) Integer.parseInt(s.substring(i + 1, i + 5), 16));
+                            i += 4;
+                        }
+                        break;
+                    default: sb.append(n);
+                }
+            } else {
+                sb.append(c);
+            }
+        }
+        return sb.toString();
+    }
+
+    private static Path localizarArquivoRoteiro() {
+        String[] tentativas = {
+            "src/jsonFiles/Roteiro.json", "jsonFiles/Roteiro.json", "Roteiro.json"
+        };
+        for (String t : tentativas) {
+            Path p = Paths.get(t);
+            if (Files.exists(p)) return p;
+        }
+        return buscarRecursivo(new File("."));
+    }
+
+    private static Path buscarRecursivo(File dir) {
+        File[] arquivos = dir.listFiles();
+        if (arquivos == null) return null;
+        for (File f : arquivos) {
+            if (f.isDirectory() && !f.getName().startsWith(".")) {
+                Path achado = buscarRecursivo(f);
+                if (achado != null) return achado;
+            } else if (f.getName().equalsIgnoreCase("roteiro.json")) {
+                return f.toPath();
+            }
+        }
+        return null;
+    }
+
+    public List<Opcao> getOpcoes() { return opcoes; }
 }

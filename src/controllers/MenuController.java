@@ -1,53 +1,62 @@
-/**
- * Controller responsável pelo gerenciamento dos Menus.
- * Gerencia o fluxo inicial, tela de créditos e saída.
- *
- * @author Renan Queiroz & Felipe Pereira
- */
 package controllers;
-import views.ConsoleView;
-public class MenuController {
-    private ConsoleView view; // Referência da View
-    private JogoController jogoCtrl; // Referência do Controller de jogo
 
-    /**
-     * Construtor do MenuController.
-     */
+import views.ConsoleView;
+
+public class MenuController {
+
+    private final ConsoleView view;
+    private final JogoController jogoCtrl;
+
     public MenuController(ConsoleView view, JogoController jogoCtrl) {
-        this.view = view; 
+        this.view = view;
         this.jogoCtrl = jogoCtrl;
     }
 
-    /**
-     * Mantém o loop ativo do menu exibindo as opções.
-     */
     public void processarMenu() {
-        boolean ativo = true; // Controla a execução do menu
-        while (ativo) {
-            int op = view.exibirMenuInicial(); // Exibe as opções e lê resposta
-            switch (op) {
-                case 1 -> {
-                    String nome = view.solicitarNomeJogador(); // Solicita o nome na View
-                    jogoCtrl.iniciarNovoJogo(nome); // Dispara o jogo
-                    // Ao finalizar ou pausar, o loop continua e reexibe o menu
-                }
-                case 2 -> {
-                    // Exibe a tela de créditos e detalhes acadêmicos do projeto
-                    view.exibirMensagem("\n========================================================");
-                    view.exibirMensagem("                   CRÉDITOS DO JOGO                     ");
-                    view.exibirMensagem("========================================================");
-                    view.exibirMensagem("Título: O Roubo Quântico");
-                    view.exibirMensagem("Disciplina: EXA863 - MI - Programação (UEFS)");
-                    view.exibirMensagem("Desenvolvimento: Renan Queiroz & Felipe Pereira");
-                    view.exibirMensagem("Arquitetura: Padrão MVC (Model-View-Controller)");
-                    view.exibirMensagem("Linguagem: Java");
-                    view.exibirMensagem("========================================================\n");
-                }
-                case 3 -> {
-                    view.exibirMensagem("Saindo do jogo... Até logo!");
-                    ativo = false; // Finaliza o loop e encerra a aplicação
-                }
-                default -> view.exibirMensagem("\nOpção inválida! Escolha um número do menu.");
+        boolean executando = true;
+
+        while (executando) {
+            view.limparTela();
+            view.exibirMensagem("==========================================");
+            view.exibirMensagem("       JOGO NARRATIVO INTERATIVO          ");
+            view.exibirMensagem("==========================================");
+            view.exibirMensagem("[1] Nova Partida");
+            view.exibirMensagem("[2] Carregar / Excluir Saves (3 Slots)");
+            view.exibirMensagem("[3] Galeria de Conquistas e Finais");
+            view.exibirMensagem("[4] Preferências do Usuário");
+            view.exibirMensagem("[5] Instruções e Créditos");
+            view.exibirMensagem("[0] Sair");
+            view.exibirMensagem("==========================================");
+
+            switch (view.lerEntrada().trim()) {
+                case "1":
+                    view.limparTela();
+                    view.exibirMensagem("Digite o nome do seu Protagonista:");
+                    String nome = view.lerEntrada().trim();
+                    jogoCtrl.iniciarNovoJogo(nome.isEmpty() ? "Investigador" : nome);
+                    break;
+                case "2":
+                    jogoCtrl.iniciarPartida(true);
+                    break;
+                case "3":
+                    jogoCtrl.exibirGaleriaEFinais();
+                    break;
+                case "4":
+                    jogoCtrl.gerenciarMenuPreferencias();
+                    break;
+                case "5":
+                    view.limparTela();
+                    view.exibirMensagem("--- INSTRUÇÕES E CRÉDITOS ---");
+                    view.exibirMensagem("Suas escolhas moldam a narrativa. Use os 3 slots para testar diferentes rotas.");
+                    view.exibirMensagem("Projeto EXA863 - MI de Programação (UEFS).");
+                    view.pausarParaLeitura();
+                    break;
+                case "0":
+                    executando = false;
+                    break;
+                default:
+                    view.exibirMensagem("Opção inválida!");
+                    view.pausarParaLeitura();
             }
         }
     }

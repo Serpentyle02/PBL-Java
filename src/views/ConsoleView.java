@@ -1,112 +1,89 @@
 package views;
-import models.Opcao;
+
 import models.Protagonista;
+
+import java.io.IOException;
+
+import java.util.NoSuchElementException;
 import java.util.Scanner;
-import java.util.List;
 
-/**
- * Componente View da arquitetura MVC.
- * Isola chamadas de sistema, limpezas de tela e leituras do Console.
- *
- * @author Renan Queiroz & Felipe Pereira
- */
 public class ConsoleView {
-    private Scanner scanner; // Leitor do fluxo de entrada do sistema
 
-    /**
-     * Construtor da View.
-     */
-    public ConsoleView() { 
-        this.scanner = new Scanner(System.in); // Inicializa o Scanner no System.in
+    private final Scanner scanner = new Scanner(System.in);
+
+    public void exibirMensagem(String msg) {
+        System.out.println(msg);
     }
 
-    /**
-     * Limpa o terminal identificando o Sistema Operacional ou utilizando fallback de linhas.
-     */
-    public void limparTela() {
-        try {
-            if (System.getProperty("os.name").contains("Windows")) {
-                // Executa comando 'cls' no CMD do Windows
-                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-            } else {
-                // Aplica sequências de escape ANSI para Linux/macOS
-                System.out.print("\033[H\033[2J");
-                System.out.flush();
-            }
-        } catch (Exception e) {
-            // Imprime linhas em branco se o terminal for restrito
-            for (int i = 0; i < 50; i++) {
-                System.out.println();
+    public void exibirNarrativaComPreferencia(String texto, int velocidadeMs) {
+        if (texto == null) return;
+        if (velocidadeMs <= 0) {
+            System.out.println(texto);
+            return;
+        }
+        for (int i = 0; i < texto.length(); i++) {
+            System.out.print(texto.charAt(i));
+            System.out.flush();
+            try {
+                Thread.sleep(velocidadeMs);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                System.out.print(texto.substring(i + 1));
+                break;
             }
         }
-    }
-
-    /**
-     * Renderiza o menu inicial e capta a opção do usuário.
-     */
-    public int exibirMenuInicial() {
-        System.out.println("\n=== O ROUBO QUÂNTICO ===");
-        System.out.println("1. Nova Partida");
-        System.out.println("2. Créditos");
-        System.out.println("3. Sair");
-        System.out.print("Escolha: ");
-        try {
-            return Integer.parseInt(scanner.nextLine()); // Retorna opção numérica
-        } catch (NumberFormatException e) {
-            return -1; // Retorna código de erro para opção inválida
-        }
-    }
-
-    /**
-     * Solicita o nome do jogador.
-     */
-    public String solicitarNomeJogador() {
-        System.out.print("Informe o nome do seu detetive acadêmico: ");
-        return scanner.nextLine(); // Captura a linha digitada
-    }
-
-    /**
-     * Exibe o texto descritivo da cena.
-     */
-    public void exibirTextoCena(String txt) { 
-        System.out.println(txt); // Imprime a narrativa
-    }
-
-    /**
-     * Exibe a lista de opções numeradas e captura a escolha.
-     */
-    public int exibirOpcoes(List<Opcao> opt) {
         System.out.println();
-        for (int i = 0; i < opt.size(); i++) {
-            System.out.println((i + 1) + ". " + opt.get(i).getTexto()); // Exibe opção formatada
-        }
-        System.out.print("Sua escolha: ");
-        return Integer.parseInt(scanner.nextLine()) - 1; // Retorna o índice correspondente
     }
+
     public void exibirStatusProtagonista(Protagonista p) {
-        System.out.println("=== STATUS DE " + p.getNome().toUpperCase() + " ===");
-        System.out.println("Lógica: " + p.getLogica()
-                + " | Carisma: " + p.getCarisma()
-                + " | Estresse: " + p.getEstresse()
-                + " | Coragem: " + p.getCoragem());
-        System.out.println("Pistas: " + p.getPistas()
-                + " | Reputação: " + p.getReputacaoGlobal());
-        System.out.println("---------------------------------");
+        if (p == null) return;
+        System.out.println("==================================================================");
+        System.out.printf(" %s | Lóg: %d | Car: %d | Est: %d | Cor: %d | Pistas: %d | Rep: %d%n",
+                p.getNome(), p.getLogica(), p.getCarisma(), p.getEstresse(),
+                p.getCoragem(), p.getPistas(), p.getReputacao());
+        if (!p.getRelacionamentos().isEmpty()) {
+            System.out.println(" Relações: " + p.getRelacionamentos());
+        }
+        System.out.println("==================================================================");
     }
 
     public String lerEntrada() {
         System.out.print("> ");
-        return scanner.nextLine();
+        try {
+            return scanner.nextLine();
+        } catch (NoSuchElementException e) {
+            encerrarPorFimDeEntrada();
+            return "0";
+        }
     }
 
     public void pausarParaLeitura() {
-        System.out.print("\nPressione ENTER para continuar...");
-        scanner.nextLine();
+        System.out.println("\n[Pressione ENTER para continuar...]");
+        try {
+            scanner.nextLine();
+        } catch (NoSuchElementException e) {
+            encerrarPorFimDeEntrada();
+        }
     }
-    /**
-     * Exibe mensagens gerais de sistema.
-     */
-    public void exibirMensagem(String msg) { 
-        System.out.println(msg); // Imprime a mensagem genérica
+
+    private void encerrarPorFimDeEntrada() {
+        System.out.println("\n[Entrada encerrada. Saindo do jogo.]");
+        System.exit(0);
+    }
+
+    /** Apaga o terminal por completo (inclusive o histórico de rolagem), mostrando só a tela atual. */
+    public void limparTela() {
+        try {
+            if (System.getProperty("os.name", "").toLowerCase().contains("win")) {
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+                return;
+            }
+        } catch (IOException e) {
+            // cai para o método ANSI abaixo
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+        System.out.print("\033[H\033[2J\033[3J");
+        System.out.flush();
     }
 }

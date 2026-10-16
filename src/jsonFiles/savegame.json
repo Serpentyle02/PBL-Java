@@ -1,0 +1,16 @@
+{
+  "idCenaAtual": 11,
+  "jogador": {
+    "nome": "Renan",
+    "logica": 4,
+    "carisma": 3,
+    "estresse": 0,
+    "coragem": 4,
+    "pistas": 1,
+    "reputacao": 2,
+    "relacionamentos": {
+      "Beto": 2,
+      "Prof. Silva": 1
+    }
+  }
+}
