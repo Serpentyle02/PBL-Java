@@ -1,0 +1,14 @@
+{
+  "nome": "Investigador",
+  "dataHora": "23/10/2026 09:16",
+  "tituloCena": "The Great Bifurcation",
+  "resumo": "Auto-Save",
+  "idCenaAtual": 5,
+  "logica": 1,
+  "carisma": 4,
+  "estresse": 0,
+  "coragem": 2,
+  "pistas": 0,
+  "reputacao": 2,
+  "relacionamentos": {"Prof. Silva": 1}
+}

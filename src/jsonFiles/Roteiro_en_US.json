@@ -1,0 +1,436 @@
+[
+  {
+    "id": 1,
+    "titulo": "The Calm Before the Storm (Initial Profile)",
+    "texto": "[SYSTEM]: The game has started.\nHow do you usually face your problems?",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "With smooth talk and a smile.",
+        "idProximaCena": 2,
+        "modLog": 1, "modCar": 3, "modEst": 0, "modCor": 1, "modPis": 0, "modRep": 1,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "With cold facts and analysis.",
+        "idProximaCena": 2,
+        "modLog": 3, "modCar": 1, "modEst": 0, "modCor": 1, "modPis": 0, "modRep": 1,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "Head-on with courage. I don't run from conflicts.",
+        "idProximaCena": 2,
+        "modLog": 1, "modCar": 0, "modEst": -1, "modCor": 3, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "titulo": "The Calm Before the Storm",
+    "texto": "07:00 AM. The Innovation Lab smells of ozone and day-old coffee.\nThe fluorescent light flickers slightly in the back of the room. The hypnotic hum of the servers is broken when the glass door opens.\n\n[ELISA]: Good morning! Guess who finally managed to stabilize the quantum matrix? Me! I'm going to compile the final version on the central server right now.",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "Make a cloud backup right now, I don't trust these old servers.",
+        "idProximaCena": 3,
+        "modLog": 1, "modCar": 0, "modEst": 0, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "Let's celebrate at the cafeteria later! You deserve it.",
+        "idProximaCena": 3,
+        "modLog": 0, "modCar": 1, "modEst": 0, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "titulo": "Chaos in the Lab",
+    "texto": "08:30 AM. Elisa types her credentials with a smile, but soon her fingers freeze.\nThe terminal screen blinks, replacing the friendly green with an alarming red: 'Empty Directory'.\n\n[ELISA]: No, no, no! It's gone! The entire code is gone! And my cloud backup password was changed! Someone hacked me!",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "(Calm down) Stay calm. No one deletes something this big without leaving a trace.",
+        "idProximaCena": 4,
+        "modLog": 1, "modCar": 0, "modEst": 0, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "(Press) Have you been talking about this patent to the wrong people?",
+        "idProximaCena": 4,
+        "modLog": 0, "modCar": 0, "modEst": 1, "modCor": 1, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "titulo": "The Arrival of Authority",
+    "texto": "The heavy mahogany door creaks. Professor Silva walks in, rubbing his temples.\nBehind him, Beto walks with his hands in his pockets and a mocking smile.\n\n[BETO]: Lost the thesis the day before, Elisa? Seems the pressure was too much. Inventing a phantom hacker is pretty creative for someone who can't program.\n[PROF. SILVA]: No project means a zero. The university doesn't cover 'lost files' excuses, Miss.",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "Professor, freeze the terminals. I demand an internal forensics check (+1 Reputation).",
+        "idProximaCena": 5,
+        "modLog": 0, "modCar": 0, "modEst": -1, "modCor": 0, "modPis": 0, "modRep": 1,
+        "npc": "Prof. Silva", "modRel": 1, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "(Confront) Beto, what time did you leave here yesterday?",
+        "idProximaCena": 5,
+        "modLog": 0, "modCar": 0, "modEst": 0, "modCor": 1, "modPis": 1, "modRep": 0,
+        "npc": "Beto", "modRel": 1, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "titulo": "The Great Bifurcation",
+    "texto": "Professor Silva slams the door in your faces violently. The crash echoes down the hallway.\nEvery lost second is one less chance to save Elisa's academic career.\n\n[ELISA]: Where do we look? On the network, checking digital footprints, or in the building, looking for who physically came through here?",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "The attack was digital. I'm going after Luiza, the hacker.",
+        "idProximaCena": 6,
+        "modLog": 1, "modCar": 0, "modEst": 0, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "Someone was here last night. I'm going to put the night guard against the wall.",
+        "idProximaCena": 9,
+        "modLog": 0, "modCar": 1, "modEst": 0, "modCor": 1, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "titulo": "Luiza's Alley (Digital Route)",
+    "texto": "The alley behind the Engineering building is damp.\nLuiza is sitting on a crate, the glow of her phone reflecting on her glasses.\n\n[LUIZA]: Track down who deleted the logs from the central servers? You're asking me to get expelled. I'll only do it if we hack the secondary router in the basement right now. Are you up to cover my six?",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "I'm in. Let's take the risk.",
+        "idProximaCena": 7,
+        "modLog": 0, "modCar": 0, "modEst": 0, "modCor": 1, "modPis": 0, "modRep": 0,
+        "npc": "Luiza", "modRel": 2, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "Too risky. Forget it, I'll go on my own.",
+        "idProximaCena": 8,
+        "modLog": 0, "modCar": 0, "modEst": 0, "modCor": -1, "modPis": 0, "modRep": 0,
+        "npc": "Luiza", "modRel": -2, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "titulo": "The Secondary Terminal (Digital Route)",
+    "texto": "The basement is a dark maze. Luiza connects her notebook to the router.\nSuddenly, a shadow moves in the crack of the door and the doorknob starts to turn violently.\n\n[NARRATOR]: The janitor!",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "Hold the door tight while she downloads the data!",
+        "idProximaCena": 12,
+        "modLog": 0, "modCar": 0, "modEst": 2, "modCor": 2, "modPis": 2, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "Disconnect the cable and run away terrified through the window!",
+        "idProximaCena": 12,
+        "modLog": -1, "modCar": 0, "modEst": 0, "modCor": -1, "modPis": 1, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "titulo": "Beto's Firewall (Alternative Digital Route)",
+    "texto": "Without Luiza's help, you hide in the library.\nYou use a secondary terminal to snoop on the MAC Address of Beto's notebook.",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "Try logical combinations (birthdays).",
+        "idProximaCena": 12,
+        "modLog": 1, "modCar": 0, "modEst": 0, "modCor": 0, "modPis": 1, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "Use a brute force script (-1 Reputation).",
+        "idProximaCena": 12,
+        "modLog": 0, "modCar": 0, "modEst": 1, "modCor": 0, "modPis": 1, "modRep": -1,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "titulo": "Mr. Mendes' Booth (Physical Route)",
+    "texto": "The security booth smells of cigarettes.\nMr. Mendes blinks his heavy eyes at the security monitors.\n\n[MR. MENDES]: Hey there, student. The lab is closed off. Better not hang around here.",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "Mr. Mendes, show me the footage. Elisa's scholarship depends on it.",
+        "idProximaCena": 10,
+        "modLog": 0, "modCar": 1, "modEst": 0, "modCor": 0, "modPis": 1, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "(Act of boldness) 'Accidentally' spill coffee on his desk to look at the screen.",
+        "idProximaCena": 10,
+        "modLog": 0, "modCar": 0, "modEst": 1, "modCor": 1, "modPis": 0, "modRep": 0,
+        "npc": "Beto", "modRel": 1, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "titulo": "The Lab's Trash (Physical Route)",
+    "texto": "The guard let it slip that a light on the third floor was left on.\nYou return to the lab and dive your hand into the trash can.\n\n[NARRATOR]: You find a gourmet coffee shop receipt issued at 11:15 PM. Professor Silva is fascinated by this coffee... but Beto is too.",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "Keep the receipt carefully.",
+        "idProximaCena": 11,
+        "modLog": 1, "modCar": 0, "modEst": 0, "modCor": 0, "modPis": 1, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "Run to Beto and throw the paper in his face in front of everyone.",
+        "idProximaCena": 11,
+        "modLog": 0, "modCar": 0, "modEst": 0, "modCor": 1, "modPis": 0, "modRep": 0,
+        "npc": "Beto", "modRel": 2, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "titulo": "The Interrogation (Physical Route)",
+    "texto": "[BETO]: What are you looking at me for? If you think I broke into the lab, prove it. My car broke down in the parking lot last night.",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "[REQUIRES 1 CLUE] Liar. The receipt shows you bought coffee at 11 PM.",
+        "idProximaCena": 12,
+        "modLog": 0, "modCar": 0, "modEst": 0, "modCor": 0, "modPis": -1, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "Pistas", "reqVal": 1
+      },
+      {
+        "texto": "I'm going to check the parking lot cameras and find out if you're lying.",
+        "idProximaCena": 12,
+        "modLog": 0, "modCar": 0, "modEst": 1, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "titulo": "The Emergency Meeting",
+    "texto": "04:00 PM. Professor Silva has ordered an immediate meeting. His office seems smaller and more suffocating than ever.\n\n[PROF. SILVA]: The board is demanding answers. I will now sign an accidental deletion report on behalf of student Elisa. The case is closed.",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "(Confront authority) This is a cowardly cover-up! (-2 Reputation)",
+        "idProximaCena": 13,
+        "modLog": 0, "modCar": 0, "modEst": 1, "modCor": 1, "modPis": 0, "modRep": -2,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "You know best, sir. (Lies to gain time).",
+        "idProximaCena": 13,
+        "modLog": 0, "modCar": 1, "modEst": 0, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "titulo": "The Night Break-In",
+    "texto": "Shadows lengthen down the hallways.\nWhen Professor Silva leaves to teach his last evening class, you notice his office key left behind on the teachers' desk.",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "Take the key and break into Professor Silva's office.",
+        "idProximaCena": 14,
+        "modLog": 0, "modCar": 0, "modEst": 1, "modCor": 1, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "Try to pick the lock on Beto's metal locker with a paperclip.",
+        "idProximaCena": 16,
+        "modLog": 0, "modCar": 0, "modEst": 0, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "Beto", "modRel": 2, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "titulo": "The Professor's Safe",
+    "texto": "You open the drawer in the dark office. Inside, a black folder hides dozens of contracts.\n\n[NARRATOR]: Elisa's quantum algorithm is printed page by page... but the 'Author and Owner' field is filled with PROFESSOR SILVA's name!",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "Photograph everything silently.",
+        "idProximaCena": 16,
+        "modLog": 1, "modCar": 0, "modEst": 0, "modCor": 0, "modPis": 2, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "Steal the entire physical folder under your jacket.",
+        "idProximaCena": 15,
+        "modLog": 0, "modCar": 0, "modEst": 2, "modCor": 2, "modPis": 1, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "titulo": "Caught Red-Handed (Absolute Risk Scene)",
+    "texto": "A violent shiver runs up your spine. The doorknob turns and the office light flicks on.\n\n[NARRATOR]: Professor Silva is standing in the doorway, eyes wide, seeing you standing behind his desk! It's now that your courage will be tested.",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "[FAILURE: Stress >= 4 AND Courage < 5] Freeze in terror and drop the papers (-10 Reputation).",
+        "idProximaCena": 23,
+        "modLog": 0, "modCar": 0, "modEst": 0, "modCor": 0, "modPis": 0, "modRep": -10,
+        "npc": "", "modRel": 0, "reqAttr": "FlagranteFalha", "reqVal": 0
+      },
+      {
+        "texto": "[REQUIRES STRESS < 6] Make up that you came looking for Elisa's medical contact.",
+        "idProximaCena": 16,
+        "modLog": 0, "modCar": 1, "modEst": 0, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "EstresseBaixo", "reqVal": 6
+      },
+      {
+        "texto": "[REQUIRES COURAGE >= 3] Look him in the eyes: 'I know what you did. Step away from the door.'",
+        "idProximaCena": 16,
+        "modLog": 1, "modCar": 0, "modEst": -1, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "CoragemAlta", "reqVal": 3
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "titulo": "Elisa's Venting",
+    "texto": "[ELISA]: Silva stole my project to patent it under his name?! The bastard robbed me out of revenge because I wouldn't list him as a co-author!",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "The game is over for him. Let's go straight to the board.",
+        "idProximaCena": 17,
+        "modLog": 1, "modCar": 0, "modEst": 0, "modCor": 1, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "I still think Beto helped execute it.",
+        "idProximaCena": 17,
+        "modLog": 0, "modCar": 0, "modEst": 0, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "Beto", "modRel": 1, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "titulo": "The Director's Anteroom",
+    "texto": "07:00 PM. The air conditioning in the Director's anteroom is at max.\nBeto bites his nails. Silva maintains a straight posture. The glass doors open.",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "Stare menacingly at Beto.",
+        "idProximaCena": 18,
+        "modLog": 0, "modCar": 0, "modEst": 0, "modCor": 1, "modPis": 0, "modRep": 0,
+        "npc": "Beto", "modRel": 10, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "Ignore the theater and focus on the evidence.",
+        "idProximaCena": 18,
+        "modLog": 1, "modCar": 0, "modEst": 0, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "titulo": "The Trial - Phase 1",
+    "texto": "[DIRECTOR]: The prestige of this institution has been violated tonight. I don't want fairy tales. I want a name. Now!",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "[REQUIRES REPUTATION = 0] It was Beto! Look at him, sweating cold!",
+        "idProximaCena": 21,
+        "modLog": 0, "modCar": 0, "modEst": 2, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "ReputacaoBaixa", "reqVal": 1
+      },
+      {
+        "texto": "[REQUIRES REPUTATION >= 1] It was a corporate theft orchestrated from the inside, sir.",
+        "idProximaCena": 19,
+        "modLog": 0, "modCar": 1, "modEst": 0, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "ReputacaoAlta", "reqVal": 1
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "titulo": "The Trial - Phase 2",
+    "texto": "[PROF. SILVA]: Theft?! What an outrage! You dare accuse me with such audacity?",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "Show the patents in your briefcase, Professor. The master badge used at 11 PM was yours.",
+        "idProximaCena": 20,
+        "modLog": 2, "modCar": 0, "modEst": 0, "modCor": 1, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "titulo": "The Indecent Proposal",
+    "texto": "The Professor's mask finally falls. He grabs you and Elisa by the arms and pulls you into a corner.\n\n[PROF. SILVA]: *(Whispering)* Say it was a mistake. I guarantee a PhD in Paris for both of you, wealth, and glory. Deny this, and I will destroy your careers!",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "You're right. We have a deal. It was a misunderstanding, Director.",
+        "idProximaCena": 22,
+        "modLog": 0, "modCar": 0, "modEst": 0, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "[REQUIRES COURAGE >= 2] Our dignity does not have a price tag. He just confessed!",
+        "idProximaCena": 201,
+        "modLog": 0, "modCar": 0, "modEst": 0, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "CoragemAlta", "reqVal": 2
+      }
+    ]
+  },
+  {
+    "id": 201,
+    "titulo": "ENDING 1 - THE ACADEMIC DETECTIVE",
+    "texto": "The room erupts. The Director calls security and Professor Silva is arrested for intellectual fraud. Beto is expelled for complicity.\nElisa presents her thesis with the recovered files and secures the patent signature.\nImpressed by your courage and wit, the Director offers you the internship position at the national research agency.\n\nLogic, courage, and ethics have prevailed.",
+    "isFinal": true,
+    "opcoes": []
+  },
+  {
+    "id": 21,
+    "titulo": "ENDING 2 - THE SCAPEGOAT",
+    "texto": "Your hasty accusation sounds like pure desperation. Beto shows forged reports indicating that the deletion attempt came from your machine.\nProfessor Silva corroborates Beto's version. The Director, furious, expels you and Elisa from campus with a police escort.\n\nYou lose everything, while the true villains toast to the million-dollar theft.",
+    "isFinal": true,
+    "opcoes": []
+  },
+  {
+    "id": 22,
+    "titulo": "ENDING 3 - THE ACCOMPLICE",
+    "texto": "Greed or fear speaks louder. The Director accepts the excuse of a server failure and closes the case.\nYears later, you and Elisa live in Paris working as Senior Researchers for Professor Silva's technology corporation.\n\nYou and Elisa drive imported cars and dine at the best places... but the painful silence always reminds you that you sold your soul for comfort.",
+    "isFinal": true,
+    "opcoes": []
+  },
+  {
+    "id": 23,
+    "titulo": "ENDING 4 - PREMATURE EXPULSION (GAME OVER)",
+    "texto": "Your heart beats so fast that the pressure breaks you. When Professor Silva catches you in his office, you freeze. Fear dominates you.\nFurious, Silva calls security and accuses you of attempted break-in and theft.\n\nYou are dragged out of the building before 6 PM. From the courtyard, you see Elisa crying in the window. You lacked the fiber to see it through to the end.",
+    "isFinal": true,
+    "opcoes": []
+  }
+]

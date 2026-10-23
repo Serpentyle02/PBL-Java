@@ -87,7 +87,7 @@
   },
   {
     "id": 5,
-    "titulo": "A Grande Bifurcao",
+    "titulo": "A Grande Bifurcacao",
     "texto": "O Professor Silva bate a porta na cara de voces com violencia. O estrondo ecoa pelo corredor.\nCada segundo perdido e uma chance a menos de salvar a carreira academica de Elisa.\n\n[ELISA]: Onde a gente procura? Na rede, com os rastros digitais, ou no predio, buscando quem passou fisicamente por aqui?",
     "isFinal": false,
     "opcoes": [
@@ -292,13 +292,13 @@
     "isFinal": false,
     "opcoes": [
       {
-        "texto": "[FALHA: Estresse > 6 E Coragem < 2] Congelar de pavor e deixar os papéis cairem (-10 Reputacao).",
+        "texto": "[FALHA: Estresse >= 4 E Coragem < 5] Congelar de pavor e deixar os papéis cairem (-10 Reputacao).",
         "idProximaCena": 23,
         "modLog": 0, "modCar": 0, "modEst": 0, "modCor": 0, "modPis": 0, "modRep": -10,
         "npc": "", "modRel": 0, "reqAttr": "FlagranteFalha", "reqVal": 0
       },
       {
-        "texto": "[Estresse <= 6] Inventar que veio procurar o contato medico da Elisa.",
+        "texto": "[REQUER ESTRESSE < 6] Inventar que veio procurar o contato medico da Elisa.",
         "idProximaCena": 16,
         "modLog": 0, "modCar": 1, "modEst": 0, "modCor": 0, "modPis": 0, "modRep": 0,
         "npc": "", "modRel": 0, "reqAttr": "EstresseBaixo", "reqVal": 6
@@ -358,13 +358,13 @@
     "isFinal": false,
     "opcoes": [
       {
-        "texto": "[REQUER PISTAS < 2 OU REPUTAÇÃO = 0] Foi o Beto! Olhem pra ele, suando frio!",
+        "texto": "[REQUER REPUTAÇÃO = 0] Foi o Beto! Olhem pra ele, suando frio!",
         "idProximaCena": 21,
         "modLog": 0, "modCar": 0, "modEst": 2, "modCor": 0, "modPis": 0, "modRep": 0,
         "npc": "", "modRel": 0, "reqAttr": "ReputacaoBaixa", "reqVal": 1
       },
       {
-        "texto": "[REQUER PISTAS >= 2 E REPUTAÇÃO >= 1] Foi um roubo corporativo orquestrado de dentro, senhor.",
+        "texto": "[REQUER REPUTAÇÃO >= 1] Foi um roubo corporativo orquestrado de dentro, senhor.",
         "idProximaCena": 19,
         "modLog": 0, "modCar": 1, "modEst": 0, "modCor": 0, "modPis": 0, "modRep": 0,
         "npc": "", "modRel": 0, "reqAttr": "ReputacaoAlta", "reqVal": 1

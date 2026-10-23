@@ -1,62 +1,85 @@
 package controllers;
 
+import models.IdiomaManager;
 import views.ConsoleView;
 
+/**
+ * Controlador responsável pelo menu principal da aplicação e pela navegação inicial
+ * entre Nova Partida, Continuar, Carregar/Excluir Saves, Galeria, Preferências, Instruções e Saída.
+ *
+ * @author Renan Queiroz & Felipe Pereira
+ */
 public class MenuController {
 
     private final ConsoleView view;
     private final JogoController jogoCtrl;
+    private final IdiomaManager idiomaManager;
 
-    public MenuController(ConsoleView view, JogoController jogoCtrl) {
+    /**
+     * Construtor do MenuController com gerenciador de idioma explícito.
+     *
+     * @param view          Instância da camada de visualização ({@link ConsoleView}).
+     * @param jogoCtrl      Instância do controlador principal do jogo ({@link JogoController}).
+     * @param idiomaManager Gerenciador de idioma da interface.
+     */
+    public MenuController(ConsoleView view, JogoController jogoCtrl, IdiomaManager idiomaManager) {
         this.view = view;
         this.jogoCtrl = jogoCtrl;
+        this.idiomaManager = (idiomaManager != null) ? idiomaManager : new IdiomaManager();
     }
 
+    /**
+     * Construtor alternativo que utiliza um {@link IdiomaManager} padrão ({@code pt_BR}).
+     *
+     * @param view     Instância da camada de visualização ({@link ConsoleView}).
+     * @param jogoCtrl Instância do controlador principal do jogo ({@link JogoController}).
+     */
+    public MenuController(ConsoleView view, JogoController jogoCtrl) {
+        this(view, jogoCtrl, new IdiomaManager());
+    }
+
+    /**
+     * Exibe o menu principal em loop até que o jogador escolha a opção [0] Sair.
+     * A cada retorno de partida ou submenu, limpa o terminal para exibir apenas a tela atual.
+     */
     public void processarMenu() {
         boolean executando = true;
 
         while (executando) {
             view.limparTela();
-            view.exibirMensagem("==========================================");
-            view.exibirMensagem("       JOGO NARRATIVO INTERATIVO          ");
-            view.exibirMensagem("==========================================");
-            view.exibirMensagem("[1] Nova Partida");
-            view.exibirMensagem("[2] Carregar / Excluir Saves (3 Slots)");
-            view.exibirMensagem("[3] Galeria de Conquistas e Finais");
-            view.exibirMensagem("[4] Preferências do Usuário");
-            view.exibirMensagem("[5] Instruções e Créditos");
-            view.exibirMensagem("[0] Sair");
-            view.exibirMensagem("==========================================");
+            String opcaoLida = String.valueOf(view.exibirMenuInicial(idiomaManager));
 
-            switch (view.lerEntrada().trim()) {
+            switch (opcaoLida) {
                 case "1":
                     view.limparTela();
-                    view.exibirMensagem("Digite o nome do seu Protagonista:");
-                    String nome = view.lerEntrada().trim();
+                    String nome = view.solicitarNomeJogador(idiomaManager).trim();
                     jogoCtrl.iniciarNovoJogo(nome.isEmpty() ? "Investigador" : nome);
                     break;
                 case "2":
-                    jogoCtrl.iniciarPartida(true);
+                    jogoCtrl.continuarUltimaPartida();
                     break;
                 case "3":
-                    jogoCtrl.exibirGaleriaEFinais();
+                    jogoCtrl.iniciarPartida(true);
                     break;
                 case "4":
-                    jogoCtrl.gerenciarMenuPreferencias();
+                    jogoCtrl.exibirGaleriaEFinais();
                     break;
                 case "5":
+                    jogoCtrl.gerenciarMenuPreferencias();
+                    break;
+                case "6":
                     view.limparTela();
-                    view.exibirMensagem("--- INSTRUÇÕES E CRÉDITOS ---");
-                    view.exibirMensagem("Suas escolhas moldam a narrativa. Use os 3 slots para testar diferentes rotas.");
-                    view.exibirMensagem("Projeto EXA863 - MI de Programação (UEFS).");
-                    view.pausarParaLeitura();
+                    view.exibirMensagem(idiomaManager.get("INSTRUCOES_TITULO"));
+                    view.exibirMensagem(idiomaManager.get("INSTRUCOES_TEXTO"));
+                    view.pausarParaLeitura(idiomaManager);
                     break;
                 case "0":
+                    view.exibirMensagem(idiomaManager.get("SAINDO"));
                     executando = false;
                     break;
                 default:
-                    view.exibirMensagem("Opção inválida!");
-                    view.pausarParaLeitura();
+                    view.exibirMensagem(idiomaManager.get("OPCAO_INVALIDA"));
+                    view.pausarParaLeitura(idiomaManager);
             }
         }
     }

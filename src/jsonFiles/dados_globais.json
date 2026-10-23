@@ -2,6 +2,7 @@
   "velocidadeTextoMs": 0,
   "autoSaveAtivo": true,
   "exibirDicas": true,
-  "desbloqueaveis": ["Conquista: Primeiros Passos na Investigação", "Dossiê Confidencial: A Testemunha Oculta"],
-  "finais": ["Final: FINAL 3 - O CUMPLICE"]
+  "idiomaPref": "pt_BR",
+  "desbloqueaveis": ["Conquista: Primeiros Passos na Investigação", "Dossiê Confidencial: A Testemunha Oculta", "Conquista: Aluno Exemplar", "Conquista: Língua de Ouro", "Conquista: Detetive Acadêmico", "Conquista: Nome Limpo"],
+  "finais": ["Ending: ENDING 1 - THE ACADEMIC DETECTIVE"]
 }

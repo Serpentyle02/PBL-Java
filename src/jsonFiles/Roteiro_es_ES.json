@@ -1,0 +1,436 @@
+[
+  {
+    "id": 1,
+    "titulo": "La Calma Antes de la Tormenta (Perfil Inicial)",
+    "texto": "[SISTEMA]: El juego ha comenzado.\n¿Cómo sueles enfrentar tus problemas?",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "Con buena labia y una sonrisa.",
+        "idProximaCena": 2,
+        "modLog": 1, "modCar": 3, "modEst": 0, "modCor": 1, "modPis": 0, "modRep": 1,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "Con hechos fríos y análisis.",
+        "idProximaCena": 2,
+        "modLog": 3, "modCar": 1, "modEst": 0, "modCor": 1, "modPis": 0, "modRep": 1,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "De frente y con coraje. No huyo de los conflictos.",
+        "idProximaCena": 2,
+        "modLog": 1, "modCar": 0, "modEst": -1, "modCor": 3, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "titulo": "La Calma Antes de la Tormenta",
+    "texto": "07:00 AM. El Laboratorio de Innovación huele a ozono y café del día anterior.\nLa luz fluorescente parpadea levemente al fondo de la sala. El zumbido hipnótico de los servidores se rompe cuando se abre la puerta de cristal.\n\n[ELISA]: ¡Buenos días! ¿Adivina quién finalmente logró estabilizar la matriz cuántica? ¡Yo! Voy a compilar la versión final en el servidor central ahora mismo.",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "Haz una copia de seguridad en la nube ya, no confío en estos servidores viejos.",
+        "idProximaCena": 3,
+        "modLog": 1, "modCar": 0, "modEst": 0, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "¡Vamos a celebrar en la cafetería después! Te lo mereces.",
+        "idProximaCena": 3,
+        "modLog": 0, "modCar": 1, "modEst": 0, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "titulo": "Caos en el Laboratorio",
+    "texto": "08:30 AM. Elisa teclea sus credenciales con una sonrisa, pero de pronto sus dedos se congelan.\nLa pantalla del terminal parpadea, reemplazando el amigable verde por un alarmante rojo: 'Directorio Vacío'.\n\n[ELISA]: ¡No, no, no! ¡Desapareció! ¡Todo el código desapareció! ¡Y cambiaron la contraseña de mi copia en la nube! ¡Alguien me hackeó!",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "(Calmar) Mantén la calma. Nadie borra algo tan grande sin dejar rastro.",
+        "idProximaCena": 4,
+        "modLog": 1, "modCar": 0, "modEst": 0, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "(Presionar) ¿Has estado hablando de esta patente con las personas equivocadas?",
+        "idProximaCena": 4,
+        "modLog": 0, "modCar": 0, "modEst": 1, "modCor": 1, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "titulo": "La Llegada de la Autoridad",
+    "texto": "La pesada puerta de caoba cruje. El Profesor Silva entra, frotándose las sienes.\nDetrás de él, Beto camina con las manos en los bolsillos y una sonrisa burlona.\n\n[BETO]: ¿Perdiste la tesis el día antes, Elisa? Parece que la presión fue demasiada. Inventar un hacker fantasma es bastante creativo para alguien que no sabe programar.\n[PROF. SILVA]: Sin proyecto es un cero. La universidad no cubre excusas de 'archivos perdidos', señorita.",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "Profesor, congele los terminales. Exijo una revisión forense interna (+1 Reputación).",
+        "idProximaCena": 5,
+        "modLog": 0, "modCar": 0, "modEst": -1, "modCor": 0, "modPis": 0, "modRep": 1,
+        "npc": "Prof. Silva", "modRel": 1, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "(Enfrentar) Beto, ¿a qué hora saliste de aquí ayer?",
+        "idProximaCena": 5,
+        "modLog": 0, "modCar": 0, "modEst": 0, "modCor": 1, "modPis": 1, "modRep": 0,
+        "npc": "Beto", "modRel": 1, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "titulo": "La Gran Bifurcación",
+    "texto": "El Profesor Silva les cierra la puerta en la cara violentamente. El estruendo resuena por el pasillo.\nCada segundo perdido es una oportunidad menos de salvar la carrera académica de Elisa.\n\n[ELISA]: ¿Dónde buscamos? ¿En la red, buscando rastros digitales, o en el edificio, buscando quién pasó físicamente por aquí?",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "El ataque fue digital. Voy tras Luiza, la hacker.",
+        "idProximaCena": 6,
+        "modLog": 1, "modCar": 0, "modEst": 0, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "Alguien estuvo aquí anoche. Voy a acorralar al guardia nocturno.",
+        "idProximaCena": 9,
+        "modLog": 0, "modCar": 1, "modEst": 0, "modCor": 1, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "titulo": "El Callejón de Luiza (Ruta Digital)",
+    "texto": "El callejón detrás del edificio de Ingeniería está húmedo.\nLuiza está sentada en una caja, el brillo de su teléfono reflejándose en sus gafas.\n\n[LUIZA]: ¿Rastrear quién borró los registros de los servidores centrales? Me estás pidiendo que me expulsen. Solo lo haré si hackeamos el enrutador secundario en el sótano ahora mismo. ¿Estás dispuesto a cubrirme la espalda?",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "Me apunto. Corramos el riesgo.",
+        "idProximaCena": 7,
+        "modLog": 0, "modCar": 0, "modEst": 0, "modCor": 1, "modPis": 0, "modRep": 0,
+        "npc": "Luiza", "modRel": 2, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "Demasiado arriesgado. Olvídalo, iré por mi cuenta.",
+        "idProximaCena": 8,
+        "modLog": 0, "modCar": 0, "modEst": 0, "modCor": -1, "modPis": 0, "modRep": 0,
+        "npc": "Luiza", "modRel": -2, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "titulo": "El Terminal Secundario (Ruta Digital)",
+    "texto": "El sótano es un laberinto oscuro. Luiza conecta su portátil al enrutador.\nDe repente, una sombra se mueve en la rendija de la puerta y el pomo empieza a girar con violencia.\n\n[NARRADOR]: ¡El conserje!",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "¡Sostener la puerta con fuerza mientras ella descarga los datos!",
+        "idProximaCena": 12,
+        "modLog": 0, "modCar": 0, "modEst": 2, "modCor": 2, "modPis": 2, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "¡Desconectar el cable y huir aterrorizado por la ventana!",
+        "idProximaCena": 12,
+        "modLog": -1, "modCar": 0, "modEst": 0, "modCor": -1, "modPis": 1, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "titulo": "El Cortafuegos de Beto (Ruta Digital Alternativa)",
+    "texto": "Sin la ayuda de Luiza, te escondes en la biblioteca.\nUsas un terminal secundario para husmear en la Dirección MAC del portátil de Beto.",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "Intentar combinaciones lógicas (fechas de cumpleaños).",
+        "idProximaCena": 12,
+        "modLog": 1, "modCar": 0, "modEst": 0, "modCor": 0, "modPis": 1, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "Usar un script de fuerza bruta (-1 Reputación).",
+        "idProximaCena": 12,
+        "modLog": 0, "modCar": 0, "modEst": 1, "modCor": 0, "modPis": 1, "modRep": -1,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "titulo": "La Caseta del Sr. Mendes (Ruta Física)",
+    "texto": "La caseta de seguridad huele a cigarrillos.\nEl Sr. Mendes parpadea con los ojos pesados ante los monitores de seguridad.\n\n[SR. MENDES]: Hola, estudiante. El laboratorio está cerrado. Mejor no merodear por aquí.",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "Sr. Mendes, muéstreme las grabaciones. La beca de Elisa depende de ello.",
+        "idProximaCena": 10,
+        "modLog": 0, "modCar": 1, "modEst": 0, "modCor": 0, "modPis": 1, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "(Acto de audacia) Derramar café 'accidentalmente' en su escritorio para mirar la pantalla.",
+        "idProximaCena": 10,
+        "modLog": 0, "modCar": 0, "modEst": 1, "modCor": 1, "modPis": 0, "modRep": 0,
+        "npc": "Beto", "modRel": 1, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "titulo": "La Basura del Laboratorio (Ruta Física)",
+    "texto": "Al guardia se le escapó que una luz en el tercer piso quedó encendida.\nVuelves al laboratorio y metes la mano en la papelera.\n\n[NARRADOR]: Encuentras un recibo de cafetería gourmet emitido a las 23:15. El Profesor Silva está fascinado con este café... pero Beto también.",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "Guardar el recibo con cuidado.",
+        "idProximaCena": 11,
+        "modLog": 1, "modCar": 0, "modEst": 0, "modCor": 0, "modPis": 1, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "Correr hacia Beto y tirarle el papel a la cara delante de todos.",
+        "idProximaCena": 11,
+        "modLog": 0, "modCar": 0, "modEst": 0, "modCor": 1, "modPis": 0, "modRep": 0,
+        "npc": "Beto", "modRel": 2, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "titulo": "El Interrogatorio (Ruta Física)",
+    "texto": "[BETO]: ¿Qué me miras? Si crees que entré al laboratorio, pruébalo. Mi coche se averió en el aparcamiento anoche.",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "[REQUIERE 1 PISTA] Mentiroso. El recibo muestra que compraste café a las 23:00.",
+        "idProximaCena": 12,
+        "modLog": 0, "modCar": 0, "modEst": 0, "modCor": 0, "modPis": -1, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "Pistas", "reqVal": 1
+      },
+      {
+        "texto": "Voy a revisar las cámaras del aparcamiento para descubrir si mientes.",
+        "idProximaCena": 12,
+        "modLog": 0, "modCar": 0, "modEst": 1, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "titulo": "La Reunión de Emergencia",
+    "texto": "16:00. El Profesor Silva ha ordenado una reunión inmediata. Su oficina parece más pequeña y sofocante que nunca.\n\n[PROF. SILVA]: La junta exige respuestas. Voy a firmar un informe de borrado accidental por parte de la alumna Elisa. El caso está cerrado.",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "(Enfrentar a la autoridad) ¡Esto es un encubrimiento cobarde! (-2 Reputación)",
+        "idProximaCena": 13,
+        "modLog": 0, "modCar": 0, "modEst": 1, "modCor": 1, "modPis": 0, "modRep": -2,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "Usted sabe lo que es mejor. (Miente para ganar tiempo).",
+        "idProximaCena": 13,
+        "modLog": 0, "modCar": 1, "modEst": 0, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "titulo": "La Invasión Nocturna",
+    "texto": "Las sombras se alargan por los pasillos.\nCuando el profesor Silva sale a impartir su última clase nocturna, notas que olvidó la llave de su oficina en la mesa de los profesores.",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "Tomar la llave e irrumpir en la oficina del Profesor Silva.",
+        "idProximaCena": 14,
+        "modLog": 0, "modCar": 0, "modEst": 1, "modCor": 1, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "Intentar forzar la taquilla metálica de Beto con un clip.",
+        "idProximaCena": 16,
+        "modLog": 0, "modCar": 0, "modEst": 0, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "Beto", "modRel": 2, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "titulo": "La Caja Fuerte del Profesor",
+    "texto": "Abres el cajón de la oficina a oscuras. Dentro, una carpeta negra esconde docenas de contratos.\n\n[NARRADOR]: El algoritmo cuántico de Elisa está impreso página por página... ¡pero el campo de 'Autor y Propietario' está rellenado con el nombre del PROFESOR SILVA!",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "Fotografiar todo silenciosamente.",
+        "idProximaCena": 16,
+        "modLog": 1, "modCar": 0, "modEst": 0, "modCor": 0, "modPis": 2, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "Robar la carpeta física entera bajo la chaqueta.",
+        "idProximaCena": 15,
+        "modLog": 0, "modCar": 0, "modEst": 2, "modCor": 2, "modPis": 1, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "titulo": "Atrapado in Fraganti (Escena de Riesgo Absoluto)",
+    "texto": "Un violento escalofrío te sube por la espalda. El pomo gira y la luz de la oficina se enciende.\n\n[NARRADOR]: ¡El Profesor Silva está parado en la puerta, con los ojos muy abiertos, viéndote detrás de su escritorio! Es ahora cuando se pondrá a prueba tu valor.",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "[FALLO: Estrés >= 4 Y Coraje < 5] Congelarte de terror y dejar caer los papeles (-10 Reputación).",
+        "idProximaCena": 23,
+        "modLog": 0, "modCar": 0, "modEst": 0, "modCor": 0, "modPis": 0, "modRep": -10,
+        "npc": "", "modRel": 0, "reqAttr": "FlagranteFalha", "reqVal": 0
+      },
+      {
+        "texto": "[REQUIERE ESTRÉS < 6] Inventar que viniste a buscar el contacto médico de Elisa.",
+        "idProximaCena": 16,
+        "modLog": 0, "modCar": 1, "modEst": 0, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "EstresseBaixo", "reqVal": 6
+      },
+      {
+        "texto": "[REQUIERE CORAJE >= 3] Míralo a los ojos: 'Sé lo que hizo. Apártese de la puerta'.",
+        "idProximaCena": 16,
+        "modLog": 1, "modCar": 0, "modEst": -1, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "CoragemAlta", "reqVal": 3
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "titulo": "El Desahogo de Elisa",
+    "texto": "[ELISA]: ¡¿Silva robó mi proyecto para patentarlo a su nombre?! ¡El maldito me robó por venganza porque no quise ponerlo como coautor!",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "Se le acabó el juego. Vamos directo a la directiva.",
+        "idProximaCena": 17,
+        "modLog": 1, "modCar": 0, "modEst": 0, "modCor": 1, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "Aún creo que Beto ayudó a ejecutarlo.",
+        "idProximaCena": 17,
+        "modLog": 0, "modCar": 0, "modEst": 0, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "Beto", "modRel": 1, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "titulo": "La Antesala del Director",
+    "texto": "19:00. El aire acondicionado en la antesala del Director está al máximo.\nBeto se muerde las uñas. Silva mantiene una postura recta. Las puertas de cristal se abren.",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "Mirar amenazadoramente a Beto.",
+        "idProximaCena": 18,
+        "modLog": 0, "modCar": 0, "modEst": 0, "modCor": 1, "modPis": 0, "modRep": 0,
+        "npc": "Beto", "modRel": 10, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "Ignorar el teatro y centrarse en las pruebas.",
+        "idProximaCena": 18,
+        "modLog": 1, "modCar": 0, "modEst": 0, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "titulo": "El Juicio - Fase 1",
+    "texto": "[DIRECTOR]: El prestigio de esta institución ha sido violado esta noche. No quiero cuentos de hadas. Quiero un nombre. ¡Ahora!",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "[REQUIERE REPUTACIÓN = 0] ¡Fue Beto! ¡Mírenlo, sudando frío!",
+        "idProximaCena": 21,
+        "modLog": 0, "modCar": 0, "modEst": 2, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "ReputacaoBaixa", "reqVal": 1
+      },
+      {
+        "texto": "[REQUIERE REPUTACIÓN >= 1] Fue un robo corporativo orquestado desde dentro, señor.",
+        "idProximaCena": 19,
+        "modLog": 0, "modCar": 1, "modEst": 0, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "ReputacaoAlta", "reqVal": 1
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "titulo": "El Juicio - Fase 2",
+    "texto": "[PROF. SILVA]: ¡¿Robo?! ¡Qué barbaridad! ¿Te atreves a acusarme con tanta audacia?",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "Muestre las patentes en su maletín, Profesor. La credencial maestra usada a las 23:00 era suya.",
+        "idProximaCena": 20,
+        "modLog": 2, "modCar": 0, "modEst": 0, "modCor": 1, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "titulo": "La Propuesta Indecente",
+    "texto": "La máscara del Profesor finalmente cae. Te agarra a ti y a Elisa por los brazos y los arrastra a un rincón.\n\n[PROF. SILVA]: *(Susurrando)* Digan que fue un error. Les garantizo un doctorado en París a ambos, riqueza y gloria. ¡Niéguenlo y destruiré sus carreras!",
+    "isFinal": false,
+    "opcoes": [
+      {
+        "texto": "Tiene razón. Tenemos un trato. Fue un malentendido, Director.",
+        "idProximaCena": 22,
+        "modLog": 0, "modCar": 0, "modEst": 0, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "", "reqVal": 0
+      },
+      {
+        "texto": "[REQUIERE CORAJE >= 2] Nuestra dignidad no tiene precio. ¡Acaba de confesar!",
+        "idProximaCena": 201,
+        "modLog": 0, "modCar": 0, "modEst": 0, "modCor": 0, "modPis": 0, "modRep": 0,
+        "npc": "", "modRel": 0, "reqAttr": "CoragemAlta", "reqVal": 2
+      }
+    ]
+  },
+  {
+    "id": 201,
+    "titulo": "FINAL 1 - EL DETECTIVE ACADÉMICO",
+    "texto": "La sala entra en erupción. El Director llama a seguridad y el Profesor Silva es arrestado por fraude intelectual. Beto es expulsado por complicidad.\nElisa presenta su tesis con los archivos recuperados y asegura la firma de la patente.\nImpresionado por tu coraje y sagacidad, el Director te ofrece un puesto de prácticas en la agencia nacional de investigación.\n\nLa lógica, el coraje y la ética han prevalecido.",
+    "isFinal": true,
+    "opcoes": []
+  },
+  {
+    "id": 21,
+    "titulo": "FINAL 2 - EL CHIVO EXPIATORIO",
+    "texto": "Tu acusación precipitada suena a pura desesperación. Beto muestra informes falsificados indicando que el intento de borrado provino de tu máquina.\nEl Profesor Silva corrobora la versión de Beto. El Director, furioso, te expulsa a ti y a Elisa del campus con escolta policial.\n\nLo pierden todo, mientras los verdaderos villanos brindan por el robo millonario.",
+    "isFinal": true,
+    "opcoes": []
+  },
+  {
+    "id": 22,
+    "titulo": "FINAL 3 - EL CÓMPLICE",
+    "texto": "La codicia o el miedo hablan más fuerte. El Director acepta la excusa de un fallo del servidor y cierra el caso.\nAños después, tú y Elisa viven en París trabajando como Investigadores Senior para la corporación tecnológica del Profesor Silva.\n\nTú y Elisa conducen coches importados y cenan en los mejores lugares... pero el doloroso silencio siempre les recuerda que vendieron su alma por comodidad.",
+    "isFinal": true,
+    "opcoes": []
+  },
+  {
+    "id": 23,
+    "titulo": "FINAL 4 - EXPULSIÓN PREMATURA (GAME OVER)",
+    "texto": "Tu corazón late tan rápido que la presión te quiebra. Cuando el Profesor Silva te pilla en su oficina, te congelas. El miedo te domina.\nFurioso, Silva llama a seguridad y te acusa de intento de allanamiento y robo.\n\nTe arrastran fuera del edificio antes de las 18:00. Desde el patio, ves a Elisa llorando en la ventana. Te faltó fibra para llegar hasta el final.",
+    "isFinal": true,
+    "opcoes": []
+  }
+]
